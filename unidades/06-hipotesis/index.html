@@ -48,22 +48,35 @@
     </nav>
 
     <section>
-      <h2>Introducción</h2>
       <p>
         Una <strong>prueba de hipótesis</strong> es un procedimiento para decidir, a
         partir de los datos de una muestra, si una afirmación sobre un parámetro
-        poblacional es creíble o no. Toda prueba parte de dos hipótesis opuestas: la
-        <strong>hipótesis nula</strong> ($H_0$), que representa la afirmación aceptada o
-        el "estado actual" (por ejemplo, $\mu = 500$), y la
-        <strong>hipótesis alternativa</strong> ($H_1$), que es lo que sospechamos o
-        queremos comprobar (por ejemplo, $\mu \ne 500$, $\mu < 500$ o $\mu > 500$).
-        <span class="cite">(Walpole et al., 2012, cap. 10)</span>
+        poblacional es creíble o no. A continuación se presentan, tema a tema, las
+        piezas que forman ese procedimiento: las hipótesis en juego, los errores
+        posibles y las pruebas para la media y la proporción.
+      </p>
+
+      <h2>Hipótesis nula y alternativa</h2>
+      <p>
+        Toda prueba parte de dos hipótesis opuestas: la <strong>hipótesis nula</strong>
+        ($H_0$), que representa la afirmación aceptada o el "estado actual" (por
+        ejemplo, $\mu = 500$), y la <strong>hipótesis alternativa</strong> ($H_1$), que
+        es lo que sospechamos o queremos comprobar (por ejemplo, $\mu \ne 500$,
+        $\mu < 500$ o $\mu > 500$). <span class="cite">(Walpole et al., 2012, cap.
+        10)</span>
       </p>
       <p>
         La prueba nunca "demuestra" que $H_0$ es verdadera. Solo puede terminar en una de
         dos decisiones: <strong>rechazar $H_0$</strong> (los datos son poco compatibles
         con ella) o <strong>no rechazar $H_0$</strong> (los datos no dan evidencia
         suficiente en su contra, lo cual no es lo mismo que probar que es cierta).
+      </p>
+      <p>
+        Una forma sencilla de recordar esta lógica es pensar en un juicio legal. El
+        acusado se presume inocente ($H_0$: "es inocente") hasta que la evidencia sea lo
+        bastante fuerte como para condenarlo; no se exige probar la inocencia, solo no
+        encontrar evidencia suficiente en su contra. Rechazar $H_0$ equivale a
+        declararlo culpable.
       </p>
 
       <h2>Errores tipo I y tipo II</h2>
@@ -82,20 +95,13 @@
           <tr><td>Rechazar $H_0$</td><td>Error tipo I ($\alpha$)</td><td>Decisión correcta</td></tr>
         </tbody>
       </table>
-
-      <h3>Analogía: el juicio legal</h3>
       <p>
-        Una forma sencilla de recordar la lógica de una prueba de hipótesis es pensar en
-        un juicio legal. El acusado se presume inocente ($H_0$: "es inocente") hasta que
-        la evidencia sea lo bastante fuerte como para condenarlo; no se exige probar la
-        inocencia, solo no encontrar evidencia suficiente en su contra. Rechazar $H_0$
-        equivale a declararlo culpable. Un <strong>error tipo I</strong> sería condenar a
-        un inocente (rechazar una $H_0$ verdadera), mientras que un
+        Siguiendo la analogía del juicio: un <strong>error tipo I</strong> sería
+        condenar a un inocente (rechazar una $H_0$ verdadera), mientras que un
         <strong>error tipo II</strong> sería absolver a un culpable (no rechazar una
         $H_0$ falsa). Ningún sistema puede eliminar ambos riesgos a la vez; solo puede
         decidir cuál le preocupa controlar más de antemano.
       </p>
-
       <h3>¿Por qué se controla $\alpha$ y no $\beta$ directamente?</h3>
       <p>
         Por convención, se fija $\alpha$ antes de tomar la muestra porque rechazar una
@@ -118,6 +124,8 @@
       <div class="formula-box">
         $$Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}$$
       </div>
+
+      <h3>Valor crítico</h3>
       <p>
         Rechazamos $H_0$ si el estadístico cae en la <strong>región de rechazo</strong>,
         definida por un <strong>valor crítico</strong> que depende de $\alpha$ y de si la
@@ -132,6 +140,8 @@
           <tr><td>Dos colas</td><td>1.645</td><td>1.96</td><td>2.576</td></tr>
         </tbody>
       </table>
+
+      <h3>Valor-p</h3>
       <p>
         Una alternativa equivalente es el <strong>valor-p</strong>: la probabilidad de
         obtener un estadístico al menos tan extremo como el observado, si $H_0$ fuera

@@ -50,6 +50,14 @@
     <section>
       <h2>Introducción</h2>
       <p>
+        En esta unidad estudiamos las variables aleatorias: cómo se distribuye su
+        probabilidad, cómo resumir su comportamiento con el valor esperado y la varianza,
+        y un primer modelo concreto para contar éxitos, la distribución binomial. Cada
+        concepto se presenta por separado, con su definición, su fórmula y un ejemplo breve.
+      </p>
+
+      <h3>Variable aleatoria discreta y continua</h3>
+      <p>
         Una <strong>variable aleatoria</strong> ($X$) asigna un número a cada resultado de
         un experimento aleatorio. Puede ser <strong>discreta</strong>, si toma un conjunto
         contable de valores (por ejemplo, el número de caras al lanzar 3 monedas), o
@@ -57,6 +65,8 @@
         (por ejemplo, el tiempo que tarda un estudiante en resolver un examen). En este
         curso trabajamos principalmente con variables discretas.
       </p>
+
+      <h3>Distribución de probabilidad</h3>
       <p>
         La <strong>distribución de probabilidad</strong> de una variable discreta es una
         tabla o función $p(x) = P(X = x)$ que asigna una probabilidad a cada valor posible.
@@ -64,19 +74,17 @@
         deben sumar exactamente 1.
         <span class="cite">(Walpole et al., 2012, cap. 3)</span>
       </p>
+
+      <h3>Valor esperado E(X)</h3>
       <p>
         Igual que con un conjunto de datos, una variable aleatoria tiene un
-        <strong>valor esperado</strong> $E(X)$ (su promedio a largo plazo) y una
-        <strong>varianza</strong> $\text{Var}(X)$ (qué tan dispersos están sus valores
-        alrededor de $E(X)$).
+        <strong>valor esperado</strong> $E(X)$: un número que resume su promedio a largo
+        plazo.
         <span class="cite">(Walpole et al., 2012, cap. 4)</span>
       </p>
-
       <div class="formula-box">
-        $$E(X) = \sum_i x_i \, p(x_i) \qquad \text{Var}(X) = \sum_i x_i^2 \, p(x_i) - \big[E(X)\big]^2$$
+        $$E(X) = \sum_i x_i \, p(x_i)$$
       </div>
-
-      <h3>¿Qué significa realmente el valor esperado?</h3>
       <p>
         $E(X)$ no es "el valor que más se espera obtener" en un solo ensayo — de hecho,
         en el ejemplo de las 3 monedas más abajo, $E(X) = 1.5$ y sin embargo es imposible
@@ -95,7 +103,14 @@
         <span class="cite">(Walpole et al., 2012, cap. 4)</span>
       </p>
 
-      <h3>De dónde sale la fórmula corta de la varianza</h3>
+      <h3>Varianza Var(X)</h3>
+      <p>
+        La <strong>varianza</strong> $\text{Var}(X)$ mide qué tan dispersos están los
+        valores de $X$ alrededor de $E(X)$.
+      </p>
+      <div class="formula-box">
+        $$\text{Var}(X) = \sum_i x_i^2 \, p(x_i) - \big[E(X)\big]^2$$
+      </div>
       <p>
         La definición "natural" de la varianza es el promedio del cuadrado de la
         distancia entre $X$ y su media $\mu = E(X)$: $\text{Var}(X) = E\big[(X-\mu)^2\big]$.
@@ -116,11 +131,11 @@
       </div>
       <p>
         Como $\mu = E(X)$, esto es exactamente $\text{Var}(X) = E(X^2) - [E(X)]^2$: la
-        misma fórmula corta que aparece en el recuadro de arriba, ahora justificada
-        algebraicamente. <span class="cite">(Walpole et al., 2012, cap. 4)</span>
+        misma fórmula corta del recuadro de arriba, ahora justificada algebraicamente.
+        <span class="cite">(Walpole et al., 2012, cap. 4)</span>
       </p>
 
-      <h2>La distribución binomial</h2>
+      <h3>La distribución binomial</h3>
       <p>
         Muchos experimentos consisten en repetir $n$ veces un mismo ensayo con solo dos
         resultados posibles (éxito o fracaso), con probabilidad de éxito $p$ constante e
@@ -130,11 +145,6 @@
         <strong>distribución binomial</strong>.
         <span class="cite">(Walpole et al., 2012, cap. 5; Triola, 2018, cap. 5)</span>
       </p>
-      <div class="formula-box">
-        $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k = 0, 1, \dots, n$$
-      </div>
-
-      <h3>Las condiciones de un experimento binomial</h3>
       <p>
         No cualquier experimento con "éxito" y "fracaso" es binomial. Deben cumplirse
         cuatro condiciones a la vez:
@@ -154,6 +164,9 @@
         reponerlas)— la variable ya no es binomial y hace falta otro modelo.
         <span class="cite">(Walpole et al., 2012, cap. 5)</span>
       </p>
+      <div class="formula-box">
+        $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k = 0, 1, \dots, n$$
+      </div>
       <p>
         ¿Qué representa $\binom{n}{k}$ en la fórmula? Simplemente cuenta de
         <strong>cuántas formas distintas</strong> se pueden elegir, de los $n$ ensayos,

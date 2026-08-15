@@ -50,41 +50,142 @@
     <section>
       <h2>Introducción</h2>
       <p>
+        Antes de resolver el tutorial de esta unidad, repasamos los conceptos de
+        probabilidad uno por uno: qué es un experimento aleatorio, cómo se mide la
+        probabilidad de un evento y qué reglas permiten combinarlas. Cada apartado incluye
+        su definición, la fórmula correspondiente y, cuando ayuda, un ejemplo numérico breve.
+      </p>
+
+      <h3>Experimento aleatorio y espacio muestral</h3>
+      <p>
         Un <strong>experimento aleatorio</strong> es un proceso cuyo resultado no se puede
-        predecir con certeza, aunque sí se conocen todos sus resultados posibles: lanzar un
-        dado, extraer una carta o encuestar a un estudiante son ejemplos. El conjunto de
-        todos los resultados posibles se llama <strong>espacio muestral</strong> ($\Omega$),
-        y cualquier subconjunto de ese espacio es un <strong>evento</strong> (por ejemplo,
-        $A$ = "el dado muestra un número par").
+        predecir con certeza, aunque sí se conocen de antemano todos sus resultados
+        posibles. El conjunto de todos esos resultados posibles se llama
+        <strong>espacio muestral</strong>, y se denota $\Omega$.
+      </p>
+      <p>
+        Por ejemplo, al lanzar un dado, $\Omega = \{1,2,3,4,5,6\}$; al lanzar una moneda,
+        $\Omega = \{\text{cara}, \text{sello}\}$; al extraer una carta de una baraja de 52,
+        $\Omega$ tiene 52 resultados posibles.
+      </p>
+
+      <h3>Evento</h3>
+      <p>
+        Un <strong>evento</strong> es cualquier subconjunto del espacio muestral, es decir,
+        un conjunto de resultados que nos interesa observar. Por ejemplo, al lanzar un
+        dado, el evento $A$ = "el dado muestra un número par" corresponde al subconjunto
+        $A = \{2,4,6\}$.
       </p>
       <p>
         La <strong>probabilidad</strong> de un evento $A$, escrita $P(A)$, mide qué tan
-        posible es que ese evento ocurra. Cumple tres propiedades básicas (axiomas):
-        siempre está entre 0 y 1, la probabilidad de todo el espacio muestral es 1, y la
-        probabilidad de que ocurra alguno de varios eventos que no pueden pasar al mismo
-        tiempo (mutuamente excluyentes) es la suma de sus probabilidades individuales
-        <span class="cite">(Walpole et al., 2012, cap. 2)</span>.
-      </p>
-      <p>
-        A partir de estos axiomas se derivan las reglas que más usamos en la práctica: la
-        regla del <strong>complemento</strong>, la regla de la <strong>unión</strong> (para
-        cuando dos eventos pueden ocurrir a la vez) y la <strong>probabilidad
-        condicional</strong>, que mide la probabilidad de un evento sabiendo que ya ocurrió otro.
+        posible es que ese evento ocurra: cuanto más cerca de 1, más probable.
       </p>
 
+      <h3>Axiomas de probabilidad</h3>
+      <p>
+        Toda probabilidad debe cumplir tres propiedades básicas, llamadas
+        <strong>axiomas</strong>: la probabilidad de cualquier evento está siempre entre 0
+        y 1; la probabilidad de todo el espacio muestral es 1 (algo del experimento
+        siempre ocurre); y si dos eventos no pueden ocurrir al mismo tiempo (son
+        <strong>mutuamente excluyentes</strong>), la probabilidad de que ocurra uno u otro
+        es la suma de sus probabilidades individuales
+        <span class="cite">(Walpole et al., 2012, cap. 2)</span>.
+      </p>
       <div class="formula-box">
-        $$0 \le P(A) \le 1 \qquad P(\Omega) = 1 \qquad P(A^c) = 1 - P(A)$$
+        $$0 \le P(A) \le 1 \qquad P(\Omega) = 1 \qquad P(A \cup B) = P(A) + P(B) \ \text{si } A \cap B = \emptyset$$
       </div>
+
+      <h3>Regla del complemento</h3>
+      <p>
+        El <strong>complemento</strong> de un evento $A$, escrito $A^c$, son todos los
+        resultados de $\Omega$ que <em>no</em> están en $A$. Como $A$ y $A^c$ juntos cubren
+        todo el espacio muestral sin traslaparse, sus probabilidades siempre suman 1.
+      </p>
       <div class="formula-box">
-        $$P(A \cup B) = P(A) + P(B) - P(A \cap B) \qquad P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \ P(B) > 0$$
+        $$P(A^c) = 1 - P(A)$$
+      </div>
+
+      <h3>Regla de la unión</h3>
+      <p>
+        La <strong>unión</strong> de dos eventos, $A \cup B$, ocurre cuando pasa $A$, o pasa
+        $B$, o pasan ambos. Su probabilidad se calcula sumando las probabilidades
+        individuales y restando la de la intersección:
+      </p>
+      <div class="formula-box">
+        $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
       </div>
       <p>
-        Dos eventos son <strong>independientes</strong> cuando el hecho de que ocurra uno no
-        cambia la probabilidad del otro, es decir, cuando $P(A \mid B) = P(A)$. En ese caso,
-        la probabilidad de que ocurran ambos es simplemente el producto:
-        $P(A \cap B) = P(A) \cdot P(B)$
-        <span class="cite">(Triola, 2018, cap. 4)</span>.
+        La resta puede parecer arbitraria a primera vista, pero tiene una explicación
+        sencilla en términos de conteo <span class="cite">(Walpole et al., 2012, cap.
+        2)</span>. Al sumar $P(A)$ y $P(B)$ directamente, los resultados que pertenecen a
+        ambos eventos a la vez se cuentan <strong>dos veces</strong>: una dentro de $A$ y
+        otra dentro de $B$. Para corregir ese doble conteo, restamos $P(A \cap B)$ una sola
+        vez.
       </p>
+      <p>
+        Un ejemplo pequeño lo hace evidente. Al lanzar un dado, sea $A$ = "sale un número
+        par" $= \{2,4,6\}$ y $B$ = "sale un número mayor que 3" $= \{4,5,6\}$. Los
+        resultados 4 y 6 están en ambos conjuntos a la vez ($A \cap B = \{4,6\}$), así que
+        sumar $n(A) + n(B) = 3 + 3 = 6$ los cuenta dos veces. El número real de resultados
+        distintos en la unión es $A \cup B = \{2,4,5,6\}$, es decir 4, y al restar la
+        intersección una vez, $6 - 2 = 4$ coincide.
+      </p>
+      <div class="formula-box">
+        $$P(A) = \frac{3}{6}, \quad P(B) = \frac{3}{6}, \quad P(A \cap B) = \frac{2}{6}$$
+        $$P(A \cup B) = \frac{3}{6} + \frac{3}{6} - \frac{2}{6} = \frac{4}{6} \approx 0.667$$
+      </div>
+
+      <h3>Probabilidad condicional</h3>
+      <p>
+        La <strong>probabilidad condicional</strong> de $A$ dado $B$, escrita
+        $P(A \mid B)$, mide la probabilidad de que ocurra $A$ sabiendo que $B$ ya ocurrió.
+      </p>
+      <div class="formula-box">
+        $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \qquad P(B) > 0$$
+      </div>
+      <p>
+        La fórmula tiene una lectura intuitiva: una vez que sabemos que $B$ ya ocurrió,
+        dejamos de pensar en todo el espacio muestral $\Omega$ y tratamos a $B$ como si
+        fuera el <strong>nuevo universo</strong> de posibilidades. Dentro de ese universo
+        reducido, solo nos interesa qué parte corresponde también a $A$, es decir, la
+        intersección $A \cap B$ <span class="cite">(Triola, 2018, cap. 4)</span>.
+      </p>
+      <p>
+        Como adelanto de lo que veremos en el tutorial de esta unidad: si de 28
+        estudiantes a quienes les gusta Matemáticas, 10 también dicen que les gusta
+        Física, podemos restringir la atención a esos 28 estudiantes (el espacio muestral
+        "reducido") y responder "¿cuál es la probabilidad de que también le guste
+        Física?" dividiendo directamente 10 entre 28:
+      </p>
+      <div class="formula-box">
+        $$P(F \mid M) = \frac{10}{28} \approx 0.357$$
+      </div>
+      <p>
+        Es el mismo resultado que obtendremos más adelante calculando el cociente de las
+        probabilidades $P(M \cap F)$ y $P(M)$ ya expresadas sobre el total de 50
+        estudiantes.
+      </p>
+
+      <h3>Independencia</h3>
+      <p>
+        Dos eventos son <strong>independientes</strong> cuando el hecho de que ocurra uno
+        no cambia la probabilidad del otro, es decir, cuando $P(A \mid B) = P(A)$.
+      </p>
+      <div class="formula-box">
+        $$P(A \cap B) = P(A) \cdot P(B)$$
+      </div>
+      <p>
+        Esta igualdad no es una regla aparte para memorizar: es consecuencia directa de la
+        definición de independencia combinada con la fórmula de probabilidad condicional
+        <span class="cite">(Triola, 2018, cap. 4)</span>. Partiendo de la definición de
+        probabilidad condicional y sustituyendo $P(A \mid B) = P(A)$, podemos despejar
+        $P(A \cap B)$ <span class="cite">(Walpole et al., 2012, cap. 2)</span>:
+      </p>
+      <div class="formula-box">
+        $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+        $$\text{si } A \text{ y } B \text{ son independientes:} \quad P(A \mid B) = P(A)$$
+        $$\Rightarrow \ P(A) = \frac{P(A \cap B)}{P(B)} \ \Rightarrow \ P(A) \cdot P(B) = P(A \cap B)$$
+      </div>
     </section>
 
     <section>
@@ -160,79 +261,6 @@
           independientes</strong>.
         </p>
       </div>
-    </section>
-
-    <section>
-      <h2>Profundizando en las reglas de probabilidad</h2>
-
-      <h3>¿Por qué la regla de la unión resta la intersección?</h3>
-      <p>
-        La fórmula $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ puede parecer arbitraria a
-        primera vista, pero tiene una explicación muy sencilla si pensamos en conteo de
-        casos <span class="cite">(Walpole et al., 2012, cap. 2)</span>. Cuando sumamos
-        $P(A)$ y $P(B)$ directamente, estamos contando <strong>dos veces</strong> a los
-        resultados que pertenecen a ambos eventos a la vez: una vez dentro de $A$ y otra
-        dentro de $B$. Para corregir ese doble conteo, restamos $P(A \cap B)$ una sola vez.
-      </p>
-      <p>
-        Un ejemplo pequeño lo hace evidente. Al lanzar un dado, sea $A$ = "sale un número
-        par" $= \{2,4,6\}$ y $B$ = "sale un número mayor que 3" $= \{4,5,6\}$. Ambos
-        eventos tienen 3 resultados favorables, pero 4 y 6 están en los dos conjuntos a la
-        vez ($A \cap B = \{4,6\}$). Si simplemente sumamos $n(A) + n(B) = 3 + 3 = 6$,
-        estamos contando dos veces a los elementos 4 y 6. El número real de resultados
-        distintos en la unión es $n(A \cup B) = \{2,4,5,6\} = 4$, y en efecto, al restar
-        la intersección una vez, $6 - 2 = 4$ coincide.
-      </p>
-      <div class="formula-box">
-        $$P(A) = \frac{3}{6}, \quad P(B) = \frac{3}{6}, \quad P(A \cap B) = \frac{2}{6}$$
-        $$P(A \cup B) = \frac{3}{6} + \frac{3}{6} - \frac{2}{6} = \frac{4}{6} \approx 0.667$$
-      </div>
-
-      <h3>Intuición de la probabilidad condicional</h3>
-      <p>
-        La fórmula $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$ también tiene una lectura muy
-        intuitiva: una vez que sabemos que $B$ ya ocurrió, dejamos de pensar en todo el
-        espacio muestral $\Omega$ y tratamos a $B$ como si fuera el <strong>nuevo
-        universo</strong> de posibilidades. Dentro de ese universo reducido, solo nos
-        interesa qué parte corresponde también a $A$, es decir, la intersección
-        $A \cap B$ <span class="cite">(Triola, 2018, cap. 4)</span>.
-      </p>
-      <p>
-        Retomando el tutorial anterior: de los 28 estudiantes a quienes les gusta
-        Matemáticas, 10 también dijeron que les gusta Física. Si ahora restringimos
-        nuestra atención únicamente a esos 28 estudiantes (el espacio muestral
-        "reducido"), la pregunta "¿cuál es la probabilidad de que también le guste
-        Física?" se responde dividiendo directamente 10 entre 28:
-      </p>
-      <div class="formula-box">
-        $$P(F \mid M) = \frac{10}{28} = \frac{0.20}{0.56} \approx 0.357$$
-      </div>
-      <p>
-        Es el mismo resultado del Paso 5, pero visto como un conteo directo dentro del
-        grupo reducido, en lugar de dividir probabilidades ya calculadas sobre los 50
-        estudiantes totales.
-      </p>
-
-      <h3>¿De dónde sale la fórmula de independencia?</h3>
-      <p>
-        La igualdad $P(A \cap B) = P(A) \cdot P(B)$ no es una regla aparte que hay que
-        memorizar por separado: es consecuencia directa de la definición de independencia
-        combinada con la fórmula de probabilidad condicional
-        <span class="cite">(Walpole et al., 2012, cap. 2)</span>. Dos eventos son
-        independientes cuando saber que ocurrió $B$ no cambia la probabilidad de $A$, es
-        decir, $P(A \mid B) = P(A)$. Partiendo de la definición de probabilidad
-        condicional y sustituyendo esta igualdad, podemos despejar $P(A \cap B)$:
-      </p>
-      <div class="formula-box">
-        $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
-        $$\text{si } A \text{ y } B \text{ son independientes:} \quad P(A \mid B) = P(A)$$
-        $$\Rightarrow \ P(A) = \frac{P(A \cap B)}{P(B)} \ \Rightarrow \ P(A) \cdot P(B) = P(A \cap B)$$
-      </div>
-      <p>
-        Por eso, en el Paso 6 del tutorial comparamos $P(F \mid M)$ con $P(F)$ en lugar de
-        comparar directamente $P(M \cap F)$ con $P(M) \cdot P(F)$: ambas comparaciones son
-        equivalentes, pero la primera suele resultar más intuitiva al razonar en clase.
-      </p>
     </section>
 
     <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>

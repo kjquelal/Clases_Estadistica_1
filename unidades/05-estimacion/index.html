@@ -52,41 +52,36 @@
       <p>
         Casi nunca conocemos el verdadero valor de un parámetro poblacional (como
         $\mu$ o $p$); solo tenemos datos de una muestra. <strong>Estimar</strong> es usar
-        esos datos para aproximar el parámetro. La forma más simple es la
-        <strong>estimación puntual</strong>: usar un solo número, como $\bar{x}$ para
-        estimar $\mu$, o $\hat{p}$ para estimar $p$.
-      </p>
-      <p>
-        El problema es que un estimador puntual casi nunca acierta exactamente, y no dice
-        nada sobre qué tan cerca está del valor real. Por eso usamos la
-        <strong>estimación por intervalos</strong>: en vez de un solo número, damos un
-        rango de valores plausibles, junto con un <strong>nivel de confianza</strong> que
-        indica qué tan seguido ese procedimiento produce un intervalo que sí contiene al
-        parámetro real <span class="cite">(Walpole et al., 2012, cap. 9)</span>.
-      </p>
-      <p>
-        Gracias al Teorema del Límite Central (Unidad 4), sabemos que $\bar{X}$ se
-        distribuye aproximadamente normal alrededor de $\mu$. Eso nos permite construir un
-        <strong>intervalo de confianza</strong> para $\mu$ tomando el estimador puntual y
-        sumando y restando un margen de error basado en el error estándar.
+        esos datos para aproximar el parámetro, y hay dos formas de hacerlo: con un solo
+        número (estimación puntual) o con un rango de valores plausibles (estimación por
+        intervalos).
       </p>
 
-      <h2>Intervalo de confianza para la media</h2>
-      <div class="formula-box">
-        $$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
-      </div>
+      <h2>Estimación puntual</h2>
       <p>
-        $z_{\alpha/2}$ es el valor crítico de la normal estándar asociado al nivel de
-        confianza elegido. Estos son los valores más usados:
+        La <strong>estimación puntual</strong> usa un solo número, calculado a partir de
+        la muestra, como aproximación del parámetro poblacional: $\bar{x}$ estima a
+        $\mu$, y $\hat{p}$ estima a $p$.
       </p>
-      <table class="data-table">
-        <thead><tr><th>Nivel de confianza</th><th>90%</th><th>95%</th><th>99%</th></tr></thead>
-        <tbody><tr><td>$z_{\alpha/2}$</td><td>1.645</td><td>1.96</td><td>2.576</td></tr></tbody>
-      </table>
       <p>
-        A mayor nivel de confianza, mayor es $z_{\alpha/2}$ y por lo tanto más ancho el
-        intervalo: hay una tensión entre qué tan seguros queremos estar y qué tan preciso
-        es el rango que damos.
+        El problema es que un estimador puntual casi nunca acierta exactamente, y por sí
+        solo no dice nada sobre qué tan cerca está del valor real. Por eso, para dar una
+        respuesta más honesta sobre la incertidumbre, se recurre a la estimación por
+        intervalos.
+      </p>
+
+      <h2>Estimación por intervalos</h2>
+      <p>
+        En vez de un solo número, la <strong>estimación por intervalos</strong> da un
+        rango de valores plausibles para el parámetro, junto con un
+        <strong>nivel de confianza</strong> que indica qué tan seguido ese procedimiento
+        produce un intervalo que sí contiene al parámetro real
+        <span class="cite">(Walpole et al., 2012, cap. 9)</span>. A ese rango se le llama
+        <strong>intervalo de confianza</strong>: se construye tomando el estimador
+        puntual y sumando y restando un margen de error basado en el error estándar.
+        Gracias al Teorema del Límite Central (Unidad 4), sabemos que $\bar{X}$ se
+        distribuye aproximadamente normal alrededor de $\mu$, lo que permite construir
+        este tipo de intervalo para $\mu$.
       </p>
 
       <h3>¿Qué significa realmente el "95% de confianza"?</h3>
@@ -107,13 +102,24 @@
         aleatoriedad está en el muestreo, no en el parámetro poblacional.
       </p>
 
-      <h3>El costo de mayor confianza: intervalos más anchos</h3>
+      <h2>Intervalo de confianza para la media</h2>
+      <div class="formula-box">
+        $$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+      </div>
       <p>
-        Como $z_{\alpha/2}$ crece junto con el nivel de confianza, pedir más confianza
-        siempre produce un intervalo más ancho para los mismos datos. Retomando los
-        valores del tutorial de esta unidad ($\bar{x}=15$, $\sigma_{\bar{X}}=0.6$), así
-        cambian el margen de error $E$ y el intervalo resultante según el nivel de
-        confianza elegido:
+        $z_{\alpha/2}$ es el valor crítico de la normal estándar asociado al nivel de
+        confianza elegido. Estos son los valores más usados:
+      </p>
+      <table class="data-table">
+        <thead><tr><th>Nivel de confianza</th><th>90%</th><th>95%</th><th>99%</th></tr></thead>
+        <tbody><tr><td>$z_{\alpha/2}$</td><td>1.645</td><td>1.96</td><td>2.576</td></tr></tbody>
+      </table>
+      <p>
+        A mayor nivel de confianza, mayor es $z_{\alpha/2}$ y por lo tanto más ancho el
+        intervalo: hay una tensión entre qué tan seguros queremos estar y qué tan preciso
+        es el rango que damos. Retomando los valores del tutorial de esta unidad
+        ($\bar{x}=15$, $\sigma_{\bar{X}}=0.6$), así cambian el margen de error $E$ y el
+        intervalo resultante según el nivel de confianza elegido:
       </p>
       <table class="data-table">
         <thead>
@@ -144,7 +150,7 @@
         <span class="cite">(Walpole et al., 2012, cap. 9)</span>.
       </p>
 
-      <h2>Tamaño de muestra para estimar la media</h2>
+      <h2>Tamaño de muestra</h2>
       <p>
         Si en cambio queremos fijar de antemano qué tan preciso será el intervalo —es
         decir, un margen de error máximo $E$— podemos despejar el tamaño de muestra $n$

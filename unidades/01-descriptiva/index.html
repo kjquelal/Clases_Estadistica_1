@@ -52,40 +52,109 @@
       <p>
         La estadística descriptiva se encarga de resumir y describir las características
         principales de un conjunto de datos, sin sacar conclusiones más allá de lo que
-        esos datos muestran <span class="cite">(Walpole et al., 2012, cap. 1)</span>.
-        Para lograrlo usamos dos grandes grupos de medidas: las
-        <strong>medidas de tendencia central</strong>, que indican un valor "típico" o
-        representativo del conjunto, y las <strong>medidas de dispersión</strong>, que
-        indican qué tan dispersos o agrupados están los datos alrededor de ese valor típico.
+        esos datos muestran <span class="cite">(Walpole et al., 2012, cap. 1)</span>. A
+        continuación se explican, una por una, las medidas que resumen un conjunto de
+        datos: primero las de tendencia central, luego las de dispersión.
       </p>
+
+      <h3>Media ($\bar{x}$)</h3>
       <p>
-        Las medidas de tendencia central más usadas son la <strong>media</strong> ($\bar{x}$),
-        que es el promedio aritmético; la <strong>mediana</strong>, que es el valor que queda
-        exactamente en el centro cuando los datos están ordenados; y la <strong>moda</strong>,
-        que es el valor que se repite con mayor frecuencia
+        La <strong>media</strong> (o promedio aritmético) es la suma de todos los valores
+        de un conjunto de datos dividida entre la cantidad de datos
         <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
-      <p>
-        Sin embargo, dos conjuntos de datos pueden tener la misma media y ser muy distintos
-        entre sí: uno puede tener valores muy agrupados y otro muy dispersos. Para capturar
-        esa diferencia usamos el <strong>rango</strong> (la diferencia entre el valor máximo
-        y el mínimo), la <strong>varianza</strong> ($\sigma^2$), que promedia el cuadrado de
-        las distancias de cada dato a la media, y la <strong>desviación estándar</strong>
-        ($\sigma$), que es la raíz cuadrada de la varianza y se expresa en las mismas
-        unidades que los datos originales <span class="cite">(Triola, 2018, cap. 3)</span>.
-      </p>
-
       <div class="formula-box">
-        $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad \sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n} \qquad \sigma = \sqrt{\sigma^2}$$
+        $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
       </div>
-
       <p>
-        En este curso trabajamos con las fórmulas <strong>poblacionales</strong> (dividiendo
-        entre $n$) cuando los datos representan a todo el grupo de interés, como en el
-        tutorial a continuación.
+        Como la fórmula usa el valor exacto de <em>cada</em> dato, un solo valor mucho más
+        grande o más pequeño que el resto —un <strong>valor atípico</strong> (u
+        <em>outlier</em>)— puede desplazarla notablemente. Veamos un ejemplo pequeño: los
+        gastos (en miles de pesos) de 5 personas son 3, 4, 4, 4 y 5.
+      </p>
+      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 5 \qquad \Rightarrow \qquad \bar{x} = \frac{20}{5} = 4$$</div>
+      <p>Ahora supongamos que el último dato no era 5, sino un valor mucho mayor: 50.</p>
+      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 50 \qquad \Rightarrow \qquad \bar{x} = \frac{65}{5} = 13$$</div>
+      <p>Con un solo dato atípico, la media saltó de 4 a 13.</p>
+
+      <h3>Mediana</h3>
+      <p>
+        La <strong>mediana</strong> es el valor que queda exactamente en el centro cuando
+        los datos se ordenan de menor a mayor. Si $n$ es impar, la mediana es el dato que
+        ocupa la posición $\frac{n+1}{2}$; si $n$ es par, es el promedio de los dos datos
+        centrales.
+      </p>
+      <p>
+        A diferencia de la media, la mediana solo depende de la <em>posición</em> de los
+        datos ordenados, no de su valor exacto, por lo que es mucho más robusta ante
+        valores atípicos. En el ejemplo anterior, al cambiar el 5 por un 50 la media saltó
+        de 4 a 13, pero la mediana se mantuvo exactamente en 4. Por eso, cuando un conjunto
+        de datos tiene valores extremos, suele preferirse la mediana como medida de
+        tendencia central más representativa
+        <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
 
-      <h3>Población vs. muestra</h3>
+      <h3>Moda</h3>
+      <p>
+        La <strong>moda</strong> es el valor que se repite con mayor frecuencia en el
+        conjunto de datos. Un conjunto puede no tener moda (si ningún valor se repite),
+        tener una sola moda, o tener varias —se dice entonces que es <em>bimodal</em> o
+        <em>multimodal</em>.
+      </p>
+
+      <h3>Rango</h3>
+      <p>
+        El <strong>rango</strong> es la diferencia entre el valor máximo y el valor mínimo
+        del conjunto de datos.
+      </p>
+      <div class="formula-box">$$\text{Rango} = x_{\text{máx}} - x_{\text{mín}}$$</div>
+      <p>
+        Es la medida de dispersión más simple de calcular, pero también la más pobre: al
+        usar solo dos datos, ignora por completo cómo se distribuyen todos los valores
+        intermedios <span class="cite">(Triola, 2018, cap. 3)</span>.
+      </p>
+
+      <h3>Varianza ($\sigma^2$, poblacional)</h3>
+      <p>
+        La <strong>varianza</strong> mide la dispersión de los datos promediando el
+        cuadrado de la distancia de cada dato a la media.
+      </p>
+      <div class="formula-box">$$\sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}$$</div>
+      <p>
+        Una pregunta natural es: ¿por qué no promediar directamente las distancias
+        $(x_i - \bar{x})$ en vez de elevarlas al cuadrado? La razón es que esas distancias
+        siempre suman cero, sin importar qué tan dispersos estén los datos, porque la media
+        es precisamente el punto que las equilibra. Con el conjunto $1, 2, 3$ (media $=2$):
+      </p>
+      <div class="formula-box">$$(1-2) + (2-2) + (3-2) = -1 + 0 + 1 = 0$$</div>
+      <p>
+        Si promediáramos estas distancias tal cual, siempre obtendríamos 0, sin importar si
+        los datos están muy agrupados o muy dispersos —una medida inútil. Al elevar cada
+        distancia al cuadrado, los valores negativos se vuelven positivos y ya no se cancelan
+        entre sí, lo que permite obtener una medida real de la dispersión: la varianza
+        <span class="cite">(Triola, 2018, cap. 3)</span>.
+      </p>
+
+      <h3>Desviación estándar ($\sigma$)</h3>
+      <p>
+        La <strong>desviación estándar</strong> es la raíz cuadrada de la varianza.
+      </p>
+      <div class="formula-box">$$\sigma = \sqrt{\sigma^2}$$</div>
+      <p>
+        El costo de elevar las distancias al cuadrado en la varianza es que sus unidades
+        quedan al cuadrado (por ejemplo, "horas al cuadrado"). Por eso se calcula la raíz
+        cuadrada: la desviación estándar vuelve a expresar la dispersión en las mismas
+        unidades que los datos originales
+        <span class="cite">(Triola, 2018, cap. 3)</span>.
+      </p>
+
+      <h3>Población vs. muestra y la varianza muestral</h3>
+      <p>
+        En este curso trabajamos por defecto con las fórmulas <strong>poblacionales</strong>
+        (dividiendo entre $n$) cuando los datos representan a todo el grupo de interés,
+        como en el tutorial a continuación. Pero conviene distinguir con cuidado entre
+        población y muestra.
+      </p>
       <p>
         Una <strong>población</strong> es el conjunto completo de individuos, objetos o
         mediciones que nos interesa estudiar (por ejemplo, todos los estudiantes de una
@@ -114,44 +183,6 @@
         <span class="cite">(Triola, 2018, cap. 3)</span>. No es necesario demostrarlo
         formalmente en este curso; basta con recordar la regla práctica: <strong>varianza
         poblacional divide entre $n$, varianza muestral divide entre $n-1$</strong>.
-      </p>
-
-      <h3>Por qué la media es sensible a valores atípicos</h3>
-      <p>
-        Un <strong>valor atípico</strong> (u <em>outlier</em>) es un dato mucho más grande o
-        más pequeño que el resto del conjunto. La media toma en cuenta el valor exacto de
-        cada dato, por lo que un solo valor extremo puede desplazarla notablemente; la
-        mediana, en cambio, solo depende de la posición de los datos ordenados, por lo que
-        apenas se ve afectada.
-      </p>
-      <p>Veamos un ejemplo pequeño. Los gastos (en miles de pesos) de 5 personas son:</p>
-      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 5 \qquad \Rightarrow \qquad \bar{x} = \frac{20}{5} = 4 \qquad \text{Mediana} = 4$$</div>
-      <p>Ahora supongamos que el último dato no era 5, sino un valor mucho mayor: 50.</p>
-      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 50 \qquad \Rightarrow \qquad \bar{x} = \frac{65}{5} = 13 \qquad \text{Mediana} = 4$$</div>
-      <p>
-        Con un solo dato atípico, la media saltó de 4 a 13, mientras que la mediana se
-        mantuvo exactamente igual. Por eso, cuando un conjunto de datos tiene valores
-        extremos, suele preferirse la mediana como medida de tendencia central más
-        representativa <span class="cite">(Triola, 2018, cap. 3)</span>.
-      </p>
-
-      <h3>Por qué se elevan al cuadrado las desviaciones en la varianza</h3>
-      <p>
-        Una pregunta natural es: ¿por qué no promediar directamente las distancias
-        $(x_i - \bar{x})$ en vez de elevarlas al cuadrado? La razón es que esas distancias
-        siempre suman cero, sin importar qué tan dispersos estén los datos, porque la media
-        es precisamente el punto que las equilibra. Con el conjunto $1, 2, 3$ (media $=2$):
-      </p>
-      <div class="formula-box">$$(1-2) + (2-2) + (3-2) = -1 + 0 + 1 = 0$$</div>
-      <p>
-        Si promediáramos estas distancias tal cual, siempre obtendríamos 0, sin importar si
-        los datos están muy agrupados o muy dispersos —una medida inútil. Al elevar cada
-        distancia al cuadrado, los valores negativos se vuelven positivos y ya no se cancelan
-        entre sí, lo que permite obtener una medida real de la dispersión: la varianza. El
-        costo es que las unidades quedan al cuadrado (por ejemplo, "horas al cuadrado"), así
-        que al final se calcula la raíz cuadrada —la <strong>desviación estándar</strong>—
-        para volver a expresar la dispersión en las unidades originales de los datos
-        <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
     </section>
 

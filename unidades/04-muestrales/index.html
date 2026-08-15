@@ -50,12 +50,27 @@
     <section>
       <h2>Introducción</h2>
       <p>
-        Hasta ahora trabajamos con los datos de una sola muestra. Pero en la práctica,
-        muestras distintas de la misma población dan medias distintas. Si tomáramos
-        muchísimas muestras del mismo tamaño $n$ y calculáramos la media $\bar{x}$ de
-        cada una, esos promedios formarían a su vez una distribución: la
-        <strong>distribución muestral de la media</strong>.
+        Hasta ahora trabajamos con los datos de una sola muestra: en la Unidad 1
+        describimos esa muestra con $\bar{x}$ y $s$. Ahora damos un paso más y
+        preguntamos qué pasaría si repitiéramos ese cálculo con muchas muestras
+        distintas de la misma población. Los cuatro conceptos siguientes —distribución
+        muestral de la media, Teorema del Límite Central, error estándar y distribución
+        muestral de la proporción— se construyen uno sobre el otro, en ese orden.
       </p>
+
+      <h2>Distribución muestral de la media</h2>
+      <p>
+        Si tomáramos muchísimas muestras aleatorias del mismo tamaño $n$ de una
+        población y calculáramos la media $\bar{x}$ de cada una, esos promedios
+        formarían a su vez una distribución: la <strong>distribución muestral de la
+        media</strong>. Esta distribución tiene una propiedad clave: su media coincide
+        exactamente con la media poblacional $\mu$.
+      </p>
+      <div class="formula-box">
+        $$\mu_{\bar{X}} = \mu$$
+      </div>
+
+      <h2>Teorema del Límite Central</h2>
       <p>
         El <strong>Teorema del Límite Central</strong> (TLC) dice que, sin importar la
         forma de la distribución de la población original, la distribución muestral de
@@ -65,17 +80,9 @@
         exactamente normal para cualquier $n$
         <span class="cite">(Walpole et al., 2012, cap. 8)</span>.
       </p>
-      <p>
-        Esta distribución muestral tiene la misma media que la población, $\mu$, pero una
-        dispersión menor: su desviación estándar se llama <strong>error estándar</strong>
-        y vale $\sigma/\sqrt{n}$. Mientras más grande la muestra, menos varía la media
-        muestral de una muestra a otra.
-      </p>
       <div class="formula-box">
-        $$\mu_{\bar{X}} = \mu \qquad \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \qquad Z = \frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$$
+        $$\bar{X} \ \approx\ N\!\left(\mu,\ \frac{\sigma}{\sqrt{n}}\right) \qquad \text{cuando } n \ge 30$$
       </div>
-
-      <h2>Por qué importa el Teorema del Límite Central</h2>
       <p>
         La fuerza del TLC está en lo que <em>no</em> exige: no necesitamos saber nada
         sobre la forma de la población original. Puede ser una distribución simétrica,
@@ -96,7 +103,16 @@
         original.
       </p>
 
-      <h2>Por qué el error estándar disminuye con $\sqrt{n}$, no con $n$</h2>
+      <h2>Error estándar</h2>
+      <p>
+        Aunque la distribución muestral de $\bar{X}$ esté centrada en $\mu$, su
+        dispersión es menor que la de la población original: su desviación estándar se
+        llama <strong>error estándar</strong>. Mientras más grande la muestra, menos
+        varía la media muestral de una muestra a otra.
+      </p>
+      <div class="formula-box">
+        $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \qquad\qquad Z = \frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$$
+      </div>
       <p>
         Una muestra más grande produce medias muestrales más precisas, es decir, menos
         variables de una muestra a otra. Esto se ve directamente en la fórmula
