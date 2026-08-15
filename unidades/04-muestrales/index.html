@@ -62,7 +62,8 @@
         $\bar{X}$ se aproxima a una <strong>distribución normal</strong> a medida que el
         tamaño de muestra $n$ crece (en la práctica, basta con $n \ge 30$). Si la
         población original ya es normal, la distribución muestral de $\bar{X}$ es
-        exactamente normal para cualquier $n$.
+        exactamente normal para cualquier $n$
+        <span class="cite">(Walpole et al., 2012, cap. 8)</span>.
       </p>
       <p>
         Esta distribución muestral tiene la misma media que la población, $\mu$, pero una
@@ -74,16 +75,71 @@
         $$\mu_{\bar{X}} = \mu \qquad \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \qquad Z = \frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$$
       </div>
 
+      <h2>Por qué importa el Teorema del Límite Central</h2>
+      <p>
+        La fuerza del TLC está en lo que <em>no</em> exige: no necesitamos saber nada
+        sobre la forma de la población original. Puede ser una distribución simétrica,
+        muy sesgada hacia un lado, bimodal, o cualquier forma irregular; en la práctica
+        casi nunca conocemos esa forma con certeza. Aun así, si el tamaño de muestra es
+        suficientemente grande, la distribución muestral de $\bar{X}$ va a comportarse
+        como una normal, y eso nos habilita a usar todo el aparato de la curva normal
+        —puntajes $z$, cálculo de probabilidades, tablas— para responder preguntas sobre
+        la media muestral <span class="cite">(Walpole et al., 2012, cap. 8; Triola, 2018, cap. 6)</span>.
+      </p>
+      <p>
+        La intuición es la siguiente: cada observación individual puede ser rara o
+        extrema, pero al promediar muchas observaciones independientes, esos valores
+        atípicos tienden a cancelarse entre sí —unos quedan por arriba del promedio,
+        otros por debajo— y lo que domina el resultado es el efecto acumulado de muchas
+        pequeñas variaciones, que es precisamente el patrón que genera una forma de
+        campana. Por eso promediar "suaviza" las irregularidades de la población
+        original.
+      </p>
+
+      <h2>Por qué el error estándar disminuye con $\sqrt{n}$, no con $n$</h2>
+      <p>
+        Una muestra más grande produce medias muestrales más precisas, es decir, menos
+        variables de una muestra a otra. Esto se ve directamente en la fórmula
+        $\sigma_{\bar{X}} = \sigma/\sqrt{n}$: a medida que $n$ crece, el denominador
+        crece y el error estándar se reduce. Pero como el denominador es una raíz
+        cuadrada, la mejora es cada vez más lenta: para reducir el error estándar a la
+        <strong>mitad</strong>, no basta con duplicar el tamaño de muestra, hace falta
+        <strong>cuadruplicarlo</strong>.
+      </p>
+      <div class="formula-box">
+        $$\text{Si } \sigma = 10: \qquad \sigma_{\bar{X}}\big|_{n=25} = \frac{10}{\sqrt{25}} = 2 \qquad\qquad \sigma_{\bar{X}}\big|_{n=100} = \frac{10}{\sqrt{100}} = 1$$
+      </div>
+      <p>
+        Al pasar de $n=25$ a $n=100$ (multiplicar la muestra por 4) el error estándar
+        pasa de 2 a 1, es decir, se reduce exactamente a la mitad. Esto explica por qué,
+        en la práctica, aumentar mucho el tamaño de una muestra ya grande trae beneficios
+        cada vez más pequeños en precisión, y recolectar datos adicionales tiene
+        rendimientos decrecientes.
+      </p>
+
       <h2>Distribución muestral de la proporción</h2>
       <p>
         Lo mismo ocurre con proporciones muestrales. Si $p$ es la proporción real en la
         población y $\hat{p}$ la proporción observada en una muestra de tamaño $n$, la
         distribución muestral de $\hat{p}$ también se aproxima a una normal cuando la
-        muestra es suficientemente grande ($np \ge 5$ y $n(1-p) \ge 5$).
+        muestra es suficientemente grande ($np \ge 5$ y $n(1-p) \ge 5$)
+        <span class="cite">(Triola, 2018, cap. 6)</span>.
       </p>
       <div class="formula-box">
         $$\hat{p} \ \approx\ N\!\left(p,\ \sqrt{\frac{p(1-p)}{n}}\right)$$
       </div>
+
+      <h3>Condiciones para usar la aproximación normal de la proporción muestral</h3>
+      <p>
+        Las condiciones $np \ge 5$ y $n(1-p) \ge 5$ no son un requisito arbitrario: se
+        aseguran de que haya suficientes "éxitos" y suficientes "fracasos" esperados en
+        la muestra. Si $p$ está muy cerca de 0 o de 1 (por ejemplo, un evento muy raro) y
+        la muestra es pequeña, casi todos los resultados posibles se acumulan cerca de un
+        extremo (0 o $n$ éxitos), y la distribución resulta muy asimétrica, con forma muy
+        distinta a una campana. Al exigir al menos 5 éxitos y 5 fracasos esperados, nos
+        alejamos de esos extremos y la distribución de conteos se vuelve lo bastante
+        simétrica como para que la curva normal la aproxime bien.
+      </p>
 
       <h2 id="tabla">Tabla de referencia rápida</h2>
       <p>
@@ -162,6 +218,14 @@
     </section>
 
     <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+    <section class="references">
+      <h2>Referencias</h2>
+      <ol>
+        <li>Walpole, R. E., Myers, R. H., Myers, S. L., & Ye, K. (2012). <em>Probability and Statistics for Engineers and Scientists</em> (9.ª ed.). Pearson. Cap. 8: Fundamental Sampling Distributions and Data Descriptions.</li>
+        <li>Triola, M. F. (2018). <em>Elementary Statistics</em> (13.ª ed.). Pearson. Cap. 6: Normal Probability Distributions.</li>
+      </ol>
+    </section>
 
   </div>
 </main>

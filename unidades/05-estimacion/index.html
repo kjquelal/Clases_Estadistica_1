@@ -62,7 +62,7 @@
         <strong>estimación por intervalos</strong>: en vez de un solo número, damos un
         rango de valores plausibles, junto con un <strong>nivel de confianza</strong> que
         indica qué tan seguido ese procedimiento produce un intervalo que sí contiene al
-        parámetro real.
+        parámetro real <span class="cite">(Walpole et al., 2012, cap. 9)</span>.
       </p>
       <p>
         Gracias al Teorema del Límite Central (Unidad 4), sabemos que $\bar{X}$ se
@@ -89,10 +89,60 @@
         es el rango que damos.
       </p>
 
+      <h3>¿Qué significa realmente el "95% de confianza"?</h3>
+      <p>
+        Es tentador mirar un intervalo ya calculado, como $(13.824,\ 16.176)$, y decir
+        "hay un 95% de probabilidad de que $\mu$ esté en ese rango". <strong>Esa
+        interpretación es incorrecta.</strong> Una vez que el intervalo se calculó con los
+        datos de una muestra concreta, $\mu$ ya está dentro de él o no lo está: no queda
+        ninguna aleatoriedad de por medio, porque $\mu$ es un valor fijo (aunque
+        desconocido) y el intervalo ya quedó determinado por esos números.
+      </p>
+      <p>
+        Lo que el 95% de confianza describe es el <strong>procedimiento</strong>, no un
+        resultado particular: si repitiéramos una y otra vez el proceso de tomar una
+        muestra aleatoria y construir el intervalo con la misma fórmula, aproximadamente
+        el 95% de esos intervalos contendrían el verdadero valor de $\mu$, y el 5%
+        restante no lo haría <span class="cite">(Walpole et al., 2012, cap. 9)</span>. La
+        aleatoriedad está en el muestreo, no en el parámetro poblacional.
+      </p>
+
+      <h3>El costo de mayor confianza: intervalos más anchos</h3>
+      <p>
+        Como $z_{\alpha/2}$ crece junto con el nivel de confianza, pedir más confianza
+        siempre produce un intervalo más ancho para los mismos datos. Retomando los
+        valores del tutorial de esta unidad ($\bar{x}=15$, $\sigma_{\bar{X}}=0.6$), así
+        cambian el margen de error $E$ y el intervalo resultante según el nivel de
+        confianza elegido:
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Confianza</th><th>$z_{\alpha/2}$</th><th>$E$</th><th>Intervalo</th><th>Ancho</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>90%</td><td>1.645</td><td>0.987</td><td>(14.013, 15.987)</td><td>1.974</td></tr>
+          <tr><td>95%</td><td>1.96</td><td>1.176</td><td>(13.824, 16.176)</td><td>2.352</td></tr>
+          <tr><td>99%</td><td>2.576</td><td>1.546</td><td>(13.454, 16.546)</td><td>3.091</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ganar confianza de 90% a 99% casi duplica el ancho del intervalo: pasamos de un
+        rango de 1.974 horas a uno de 3.091 horas. No existe un intervalo que sea a la vez
+        muy angosto y muy confiable con la misma muestra: la única forma de reducir el
+        ancho sin sacrificar confianza es aumentar el tamaño de muestra $n$
+        <span class="cite">(Montgomery &amp; Runger, 2014, cap. 8)</span>.
+      </p>
+
       <h2>Intervalo de confianza para una proporción</h2>
       <div class="formula-box">
         $$\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
       </div>
+      <p>
+        La lógica es la misma que para la media: se toma el estimador puntual $\hat{p}$ y
+        se le suma y resta un margen de error, solo que ahora el error estándar se calcula
+        con $\hat{p}(1-\hat{p})/n$ en lugar de $\sigma^2/n$
+        <span class="cite">(Walpole et al., 2012, cap. 9)</span>.
+      </p>
 
       <h2>Tamaño de muestra para estimar la media</h2>
       <p>
@@ -104,6 +154,24 @@
         $$n = \left(\frac{z_{\alpha/2}\,\sigma}{E}\right)^2$$
       </div>
       <p>El resultado siempre se redondea <strong>hacia arriba</strong>, para garantizar que el margen de error no supere lo pedido.</p>
+
+      <h3>De dónde sale la fórmula</h3>
+      <p>
+        Esta fórmula no aparece de la nada: sale de despejar $n$ directamente en la
+        definición del margen de error que ya usamos en el paso 4 del tutorial.
+      </p>
+      <div class="formula-box">
+        $$\begin{gathered}
+        E = z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}} \\[4pt]
+        \sqrt{n} = \frac{z_{\alpha/2}\,\sigma}{E} \\[4pt]
+        n = \left(\frac{z_{\alpha/2}\,\sigma}{E}\right)^2
+        \end{gathered}$$
+      </div>
+      <p>
+        Primero se despeja $\sqrt{n}$ multiplicando ambos lados por $\sqrt{n}/E$, y luego
+        se elevan al cuadrado ambos lados para aislar $n$
+        <span class="cite">(Walpole et al., 2012, cap. 9)</span>.
+      </p>
     </section>
 
     <section>
@@ -159,6 +227,14 @@
     </section>
 
     <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+    <section class="references">
+      <h2>Referencias</h2>
+      <ol>
+        <li>Walpole, R. E., Myers, R. H., Myers, S. L., &amp; Ye, K. (2012). <em>Probability and Statistics for Engineers and Scientists</em> (9.ª ed.). Pearson. Cap. 9: One- and Two-Sample Estimation Problems.</li>
+        <li>Montgomery, D. C., &amp; Runger, G. C. (2014). <em>Applied Statistics and Probability for Engineers</em> (6.ª ed.). Wiley. Cap. 8: Statistical Intervals for a Single Sample.</li>
+      </ol>
+    </section>
 
   </div>
 </main>

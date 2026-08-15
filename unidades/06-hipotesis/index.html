@@ -57,6 +57,7 @@
         el "estado actual" (por ejemplo, $\mu = 500$), y la
         <strong>hipótesis alternativa</strong> ($H_1$), que es lo que sospechamos o
         queremos comprobar (por ejemplo, $\mu \ne 500$, $\mu < 500$ o $\mu > 500$).
+        <span class="cite">(Walpole et al., 2012, cap. 10)</span>
       </p>
       <p>
         La prueba nunca "demuestra" que $H_0$ es verdadera. Solo puede terminar en una de
@@ -72,7 +73,7 @@
         realidad es verdadera; su probabilidad se controla de antemano y se llama
         <strong>nivel de significancia</strong> ($\alpha$), típicamente 0.05 o 0.01. Un
         <strong>error tipo II</strong> ocurre al no rechazar $H_0$ cuando en realidad es
-        falsa.
+        falsa. <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
       <table class="data-table">
         <thead><tr><th></th><th>$H_0$ es verdadera</th><th>$H_0$ es falsa</th></tr></thead>
@@ -81,6 +82,32 @@
           <tr><td>Rechazar $H_0$</td><td>Error tipo I ($\alpha$)</td><td>Decisión correcta</td></tr>
         </tbody>
       </table>
+
+      <h3>Analogía: el juicio legal</h3>
+      <p>
+        Una forma sencilla de recordar la lógica de una prueba de hipótesis es pensar en
+        un juicio legal. El acusado se presume inocente ($H_0$: "es inocente") hasta que
+        la evidencia sea lo bastante fuerte como para condenarlo; no se exige probar la
+        inocencia, solo no encontrar evidencia suficiente en su contra. Rechazar $H_0$
+        equivale a declararlo culpable. Un <strong>error tipo I</strong> sería condenar a
+        un inocente (rechazar una $H_0$ verdadera), mientras que un
+        <strong>error tipo II</strong> sería absolver a un culpable (no rechazar una
+        $H_0$ falsa). Ningún sistema puede eliminar ambos riesgos a la vez; solo puede
+        decidir cuál le preocupa controlar más de antemano.
+      </p>
+
+      <h3>¿Por qué se controla $\alpha$ y no $\beta$ directamente?</h3>
+      <p>
+        Por convención, se fija $\alpha$ antes de tomar la muestra porque rechazar una
+        afirmación que en realidad era cierta suele considerarse el error "más grave" o
+        más costoso de cometer <span class="cite">(Walpole et al., 2012, cap.
+        10)</span>. En cambio, $\beta$ (la probabilidad de un error tipo II) no se puede
+        fijar de la misma manera: depende del valor verdadero (desconocido) del
+        parámetro y de qué tan lejos esté de $\mu_0$, además del tamaño de muestra. Lo
+        único que sí sabemos, en general, es que <strong>aumentar el tamaño de
+        muestra $n$ reduce $\beta$ sin necesidad de cambiar $\alpha$</strong>, porque el
+        estimador se vuelve más preciso.
+      </p>
 
       <h2>Prueba de hipótesis para la media</h2>
       <p>
@@ -96,6 +123,7 @@
         definida por un <strong>valor crítico</strong> que depende de $\alpha$ y de si la
         prueba es de una cola (el interés es solo mayor o solo menor) o de dos colas
         (bilateral, el interés es "distinto de").
+        <span class="cite">(Walpole et al., 2012, cap. 10; Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
       <table class="data-table">
         <thead><tr><th>$\alpha$</th><th>0.10</th><th>0.05</th><th>0.01</th></tr></thead>
@@ -109,13 +137,45 @@
         obtener un estadístico al menos tan extremo como el observado, si $H_0$ fuera
         cierta. Rechazamos $H_0$ si el valor-p es menor que $\alpha$. Ambos métodos
         siempre llevan a la misma decisión.
+        <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
 
       <h2>Prueba de hipótesis para una proporción</h2>
       <div class="formula-box">
         $$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$
       </div>
-      <p>Se usa la misma tabla de valores críticos y la misma regla de decisión.</p>
+      <p>
+        Se usa la misma tabla de valores críticos y la misma regla de decisión.
+        <span class="cite">(Walpole et al., 2012, cap. 10)</span>
+      </p>
+
+      <h2>Relación entre el intervalo de confianza y la prueba de hipótesis</h2>
+      <p>
+        Las pruebas de hipótesis y los intervalos de confianza (Unidad 5) son dos caras
+        de la misma moneda: una prueba de dos colas con significancia $\alpha$ es
+        equivalente a construir un intervalo de confianza del $(1-\alpha)\times 100\%$
+        para $\mu$ y verificar si $\mu_0$ cae dentro de él. Si $\mu_0$ queda
+        <strong>fuera</strong> del intervalo, se rechaza $H_0$; si queda
+        <strong>dentro</strong>, no se rechaza. <span class="cite">(Walpole et al.,
+        2012, cap. 10)</span>
+      </p>
+      <p>
+        Podemos ilustrarlo con los mismos datos del tutorial de la batería, pero
+        planteando ahora una prueba de dos colas: $H_0: \mu = 500$ contra
+        $H_1: \mu \ne 500$, con $\bar{x} = 485$ y error estándar
+        $\sigma_{\bar{x}} = \sigma/\sqrt{n} = 60/\sqrt{36} = 10$. El intervalo de
+        confianza del 95% para $\mu$ es:
+      </p>
+      <div class="formula-box">
+        $$\bar{x} \pm 1.96 \, \sigma_{\bar{x}} = 485 \pm 1.96(10) = (465.4,\ 504.6)$$
+      </div>
+      <p>
+        Como $\mu_0 = 500$ cae <strong>dentro</strong> del intervalo $(465.4, 504.6)$, no
+        se rechaza $H_0$ — la misma conclusión a la que llegaríamos calculando el
+        estadístico $Z$ y comparándolo con $\pm 1.96$. Esta equivalencia es útil como
+        atajo mental, pero conviene recordar que solo aplica directamente a pruebas de
+        <strong>dos colas</strong>.
+      </p>
     </section>
 
     <section>
@@ -185,6 +245,14 @@
     </section>
 
     <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+    <section class="references">
+      <h2>Referencias</h2>
+      <ol>
+        <li>Walpole, R. E., Myers, R. H., Myers, S. L., & Ye, K. (2012). <em>Probability and Statistics for Engineers and Scientists</em> (9.ª ed.). Pearson. Cap. 10: One- and Two-Sample Tests of Hypotheses.</li>
+        <li>Montgomery, D. C., & Runger, G. C. (2014). <em>Applied Statistics and Probability for Engineers</em> (6.ª ed.). Wiley. Cap. 9: Tests of Hypotheses for a Single Sample.</li>
+      </ol>
+    </section>
 
   </div>
 </main>

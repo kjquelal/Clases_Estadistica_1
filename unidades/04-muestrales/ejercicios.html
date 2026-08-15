@@ -54,6 +54,8 @@
 
     <section>
 
+      <h2>Error estándar</h2>
+
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 1</span>
@@ -76,6 +78,38 @@
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Una población tiene $\sigma = 18$. Calcula el error estándar de la media
+          muestral para una muestra de tamaño $n = 9$ y para una de tamaño $n = 36$.
+          ¿Qué relación observas entre los dos tamaños de muestra y los dos errores
+          estándar obtenidos?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\sigma_{\bar{X}}\big|_{n=9} = \frac{18}{\sqrt{9}} = \frac{18}{3} = 6$$
+            </div>
+            <div class="formula-box">
+              $$\sigma_{\bar{X}}\big|_{n=36} = \frac{18}{\sqrt{36}} = \frac{18}{6} = 3$$
+            </div>
+            <p>
+              El tamaño de muestra se multiplicó por 4 (de 9 a 36) y el error estándar
+              se redujo exactamente a la mitad (de 6 a 3). Esto confirma la relación
+              $\sigma_{\bar{X}} = \sigma/\sqrt{n}$: para reducir el error estándar a la
+              mitad hace falta cuadruplicar el tamaño de la muestra, no solo duplicarlo.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <h2>Distribución muestral de la media</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
           <span class="difficulty difficulty--basico">Básico</span>
         </div>
         <p>
@@ -100,7 +134,40 @@
 
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 3</span>
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          La vida útil de cierto componente electrónico tiene media $\mu = 200$ horas y
+          desviación estándar $\sigma = 28$ horas. Se toma una muestra aleatoria de
+          $n = 49$ componentes. Calcula la probabilidad de que la vida útil promedio de la
+          muestra sea menor a 196 horas.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Como $n = 49 \ge 30$, aplica el Teorema del Límite Central.</p>
+            <div class="formula-box">
+              $$\sigma_{\bar{X}} = \frac{28}{\sqrt{49}} = \frac{28}{7} = 4$$
+            </div>
+            <div class="formula-box">
+              $$Z = \frac{196 - 200}{4} = -1.0$$
+            </div>
+            <p>
+              Como nos preguntan por la probabilidad de que $\bar{X}$ sea
+              <strong>menor</strong> que 196, usamos simetría:
+              $P(Z \le -1.0) = 1 - \Phi(1.0)$.
+            </p>
+            <div class="formula-box">
+              $$P(\bar{X} < 196) = 1 - \Phi(1.0) = 1 - 0.8413 = 0.1587$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 5</span>
           <span class="difficulty difficulty--intermedio">Intermedio</span>
         </div>
         <p>
@@ -125,9 +192,11 @@
         </details>
       </div>
 
+      <h2>Distribución muestral de la proporción</h2>
+
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 4</span>
+          <span class="exercise__label">Ejercicio 6</span>
           <span class="difficulty difficulty--avanzado">Avanzado</span>
         </div>
         <p>
@@ -147,6 +216,36 @@
             </div>
             <div class="formula-box">
               $$P(\hat{p} > 0.575) = 1 - \Phi(1.5) = 1 - 0.9332 = 0.0668$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 7</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Se sabe que el 20% de los clientes de una tienda paga con tarjeta de crédito
+          ($p = 0.2$). Se toma una muestra aleatoria de $n = 100$ clientes. Calcula la
+          probabilidad de que la proporción muestral $\hat{p}$ sea menor al 16%.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Verificamos las condiciones: $np = 20 \ge 5$ y $n(1-p) = 80 \ge 5$. ✓</p>
+            <div class="formula-box">
+              $$\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.2(0.8)}{100}} = \sqrt{0.0016} = 0.04$$
+            </div>
+            <div class="formula-box">
+              $$Z = \frac{0.16 - 0.2}{0.04} = -1.0$$
+            </div>
+            <p>
+              Usamos simetría: $P(Z \le -1.0) = 1 - \Phi(1.0)$.
+            </p>
+            <div class="formula-box">
+              $$P(\hat{p} < 0.16) = 1 - \Phi(1.0) = 1 - 0.8413 = 0.1587$$
             </div>
           </div>
         </details>

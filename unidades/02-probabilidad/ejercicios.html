@@ -49,6 +49,8 @@
 
     <section>
 
+      <h2>Espacio muestral y probabilidad clásica</h2>
+
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 1</span>
@@ -71,6 +73,30 @@
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Se extrae una carta al azar de una baraja estándar de 52 cartas (4 palos de 13
+          cartas cada uno, incluyendo 4 ases). Calcula la probabilidad de que la carta sea
+          de corazones ($\heartsuit$), y la probabilidad de que sea un as.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>El espacio muestral tiene $n(\Omega) = 52$ cartas, todas igualmente probables.</p>
+            <p>Hay 13 cartas de corazones, así que:</p>
+            <div class="formula-box">$$P(\heartsuit) = \frac{13}{52} = \frac{1}{4} = 0.25$$</div>
+            <p>Hay 4 ases en total (uno por cada palo), así que:</p>
+            <div class="formula-box">$$P(\text{as}) = \frac{4}{52} = \frac{1}{13} \approx 0.077$$</div>
+          </div>
+        </details>
+      </div>
+
+      <h2>Reglas de complemento y unión</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
           <span class="difficulty difficulty--basico">Básico</span>
         </div>
         <p>
@@ -98,7 +124,36 @@
 
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 3</span>
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          En un lote de tornillos, la probabilidad de que uno tenga un defecto de tipo A
+          (raspadura) es $0.08$, y la probabilidad de que tenga un defecto de tipo B
+          (rosca dañada) es $0.05$. Un tornillo nunca puede tener los dos defectos a la
+          vez (son mutuamente excluyentes). Calcula la probabilidad de que un tornillo
+          elegido al azar tenga algún defecto, y la probabilidad de que no tenga ningún
+          defecto.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>
+              Como los defectos A y B son mutuamente excluyentes, $P(A \cap B) = 0$ y la
+              regla de la unión se reduce a una simple suma.
+            </p>
+            <div class="formula-box">$$P(A \cup B) = P(A) + P(B) = 0.08 + 0.05 = 0.13$$</div>
+            <p>La probabilidad de que no tenga ningún defecto es el complemento de ese evento.</p>
+            <div class="formula-box">$$P(\text{sin defecto}) = 1 - P(A \cup B) = 1 - 0.13 = 0.87$$</div>
+          </div>
+        </details>
+      </div>
+
+      <h2>Probabilidad condicional e independencia</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 5</span>
           <span class="difficulty difficulty--intermedio">Intermedio</span>
         </div>
         <p>
@@ -129,7 +184,52 @@
 
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 4</span>
+          <span class="exercise__label">Ejercicio 6</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Se encuesta a 60 estudiantes sobre si estudian en grupo ($G$) y si aprobaron el
+          último examen ($A$). Los resultados se resumen en la siguiente tabla de
+          contingencia:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr><th></th><th>Aprobó ($A$)</th><th>No aprobó ($A^c$)</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Estudia en grupo ($G$)</th><td>24</td><td>6</td><td>30</td></tr>
+            <tr><th>No estudia en grupo ($G^c$)</th><td>18</td><td>12</td><td>30</td></tr>
+            <tr><th>Total</th><td>42</td><td>18</td><td>60</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Calcula $P(G)$, $P(A)$, $P(G \cap A)$ y $P(A \mid G)$. ¿Son independientes los
+          eventos "estudiar en grupo" y "aprobar el examen"?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$P(G) = \frac{30}{60} = 0.5 \qquad P(A) = \frac{42}{60} = 0.7 \qquad P(G \cap A) = \frac{24}{60} = 0.4$$
+            </div>
+            <div class="formula-box">
+              $$P(A \mid G) = \frac{P(G \cap A)}{P(G)} = \frac{0.4}{0.5} = 0.8$$
+            </div>
+            <p>
+              Comparamos $P(A \mid G) = 0.8$ con $P(A) = 0.7$. Como son distintos, saber
+              que un estudiante estudia en grupo sí cambia la probabilidad de que
+              apruebe: <strong>los eventos no son independientes</strong>. De hecho,
+              estudiar en grupo está asociado con una mayor probabilidad de aprobar.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <h2>Aplicación integradora</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 7</span>
           <span class="difficulty difficulty--avanzado">Avanzado</span>
         </div>
         <p>
@@ -151,6 +251,31 @@
             <div class="formula-box">
               $$P(\text{al menos una falla}) = 1 - P(\text{ninguna falla}) = 1 - 0.855 = 0.145$$
             </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 8</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Un sistema de seguridad tiene dos alarmas que funcionan de forma
+          <strong>independiente</strong>. Si un intruso entra al edificio, la alarma 1 lo
+          detecta con probabilidad $0.9$, y la alarma 2 lo detecta con probabilidad
+          $0.85$. Calcula la probabilidad de que: (a) ambas alarmas detecten al intruso,
+          (b) ninguna alarma lo detecte, y (c) al menos una alarma lo detecte.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>(a) Como las alarmas son independientes, multiplicamos directamente.</p>
+            <div class="formula-box">$$P(\text{ambas}) = P(1) \cdot P(2) = (0.9)(0.85) = 0.765$$</div>
+            <p>(b) Que ninguna detecte es el producto de los complementos.</p>
+            <div class="formula-box">$$P(\text{ninguna}) = (1-0.9)(1-0.85) = (0.10)(0.15) = 0.015$$</div>
+            <p>(c) Al menos una detecta es el complemento de que ninguna detecte.</p>
+            <div class="formula-box">$$P(\text{al menos una}) = 1 - P(\text{ninguna}) = 1 - 0.015 = 0.985$$</div>
           </div>
         </details>
       </div>

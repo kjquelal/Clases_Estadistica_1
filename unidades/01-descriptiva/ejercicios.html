@@ -49,6 +49,8 @@
 
     <section>
 
+      <h2>Medidas de tendencia central</h2>
+
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 1</span>
@@ -75,6 +77,35 @@
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          El promedio de calificaciones (sobre 20) de 6 estudiantes en un examen es
+          $14$. Se conocen las notas de 5 de ellos: $12, 15, 13, 16, 11$. ¿Cuál fue
+          la nota del sexto estudiante?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>
+              Como la media es la suma de todos los datos dividida entre $n$, si
+              despejamos la suma total obtenemos:
+            </p>
+            <div class="formula-box">$$\bar{x} = \frac{\sum x_i}{n} \;\Rightarrow\; \sum x_i = \bar{x} \cdot n = 14 \times 6 = 84$$</div>
+            <p>La suma de las 5 notas conocidas es:</p>
+            <div class="formula-box">$$12+15+13+16+11 = 67$$</div>
+            <p>La nota faltante es la diferencia entre la suma total y la suma conocida:</p>
+            <div class="formula-box">$$x_6 = 84 - 67 = 17$$</div>
+            <p>El sexto estudiante obtuvo una nota de <strong>17</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <h2>Medidas de dispersión</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
           <span class="difficulty difficulty--basico">Básico</span>
         </div>
         <p>
@@ -107,7 +138,51 @@
 
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 3</span>
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Se toma una <strong>muestra</strong> de 5 clientes de un banco y se registra
+          el tiempo de espera (en minutos) de cada uno: $4, 4, 6, 8, 8$.
+          Calcula la varianza muestral ($s^2$) y la desviación estándar muestral ($s$).
+          Luego compara el resultado con la varianza que se obtendría usando la fórmula
+          poblacional.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Media: $\bar{x} = \dfrac{4+4+6+8+8}{5} = \dfrac{30}{5} = 6$.</p>
+            <table class="data-table">
+              <thead><tr><th>$x_i$</th><th>$x_i-\bar{x}$</th><th>$(x_i-\bar{x})^2$</th></tr></thead>
+              <tbody>
+                <tr><td>4</td><td>-2</td><td>4</td></tr>
+                <tr><td>4</td><td>-2</td><td>4</td></tr>
+                <tr><td>6</td><td>0</td><td>0</td></tr>
+                <tr><td>8</td><td>2</td><td>4</td></tr>
+                <tr><td>8</td><td>2</td><td>4</td></tr>
+              </tbody>
+            </table>
+            <p>La suma de los cuadrados de las desviaciones es $4+4+0+4+4 = 16$.</p>
+            <p><strong>Varianza muestral</strong> (se divide entre $n-1 = 4$, no entre $n$):</p>
+            <div class="formula-box">$$s^2 = \frac{16}{5-1} = \frac{16}{4} = 4$$</div>
+            <p><strong>Desviación estándar muestral:</strong></p>
+            <div class="formula-box">$$s = \sqrt{4} = 2$$</div>
+            <p>
+              Si en cambio usáramos la fórmula poblacional (dividiendo entre $n = 5$),
+              obtendríamos $\sigma^2 = 16/5 = 3.2$, un valor menor. Esto ilustra por qué
+              se usa $n-1$ en la muestra: corrige el hecho de que, al usar $\bar{x}$
+              calculada de la propia muestra, las distancias tienden a subestimar la
+              dispersión real de la población.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <h2>Aplicación integradora</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 5</span>
           <span class="difficulty difficulty--intermedio">Intermedio</span>
         </div>
         <p>
@@ -150,7 +225,7 @@
 
       <div class="exercise">
         <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 4</span>
+          <span class="exercise__label">Ejercicio 6</span>
           <span class="difficulty difficulty--avanzado">Avanzado</span>
         </div>
         <p>
@@ -196,6 +271,42 @@
               tiene una desviación estándar mucho menor ($0.63$ frente a $2.53$). Esto
               significa que las notas de la Sección A están más agrupadas alrededor del
               promedio, es decir, es <strong>más homogénea</strong> que la Sección B.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 7</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Un equipo de 7 técnicos de soporte registra el tiempo (en minutos) que
+          tardó cada uno en resolver su último ticket:
+          $10, 12, 11, 13, 12, 60, 11$. El valor $60$ corresponde a un caso
+          excepcionalmente complejo. Calcula la media y la mediana incluyendo ese
+          valor y excluyéndolo, y explica cuál medida describe mejor el desempeño
+          típico del equipo.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p><strong>Con el valor atípico</strong> ($n = 7$), ordenados: $10, 11, 11, 12, 12, 13, 60$.</p>
+            <div class="formula-box">$$\bar{x} = \frac{10+12+11+13+12+60+11}{7} = \frac{129}{7} \approx 18.43$$</div>
+            <p>Como $n = 7$ es impar, la mediana es el valor de la posición 4:</p>
+            <div class="formula-box">$$\text{Mediana} = 12$$</div>
+            <p><strong>Sin el valor atípico</strong> ($n = 6$): $10, 12, 11, 13, 12, 11$, ordenados: $10, 11, 11, 12, 12, 13$.</p>
+            <div class="formula-box">$$\bar{x} = \frac{10+12+11+13+12+11}{6} = \frac{69}{6} = 11.5$$</div>
+            <p>Como $n = 6$ es par, la mediana es el promedio de las posiciones 3 y 4:</p>
+            <div class="formula-box">$$\text{Mediana} = \frac{11+12}{2} = 11.5$$</div>
+            <p>
+              Al quitar el caso atípico, la media cambió fuertemente (de $18.43$ a
+              $11.5$ minutos), mientras que la mediana apenas cambió (de $12$ a
+              $11.5$ minutos). Esto confirma que la <strong>mediana es más robusta
+              ante valores atípicos</strong> y describe mejor el tiempo "típico" que
+              tarda el equipo, mientras que la media se ve distorsionada por el caso
+              excepcional.
             </p>
           </div>
         </details>

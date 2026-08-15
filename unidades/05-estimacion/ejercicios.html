@@ -54,6 +54,8 @@
 
     <section>
 
+      <h2>Intervalo de confianza para la media</h2>
+
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 1</span>
@@ -83,35 +85,6 @@
       <div class="exercise">
         <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 2</span>
-          <span class="difficulty difficulty--basico">Básico</span>
-        </div>
-        <p>
-          En una encuesta a 400 personas, 260 dijeron apoyar una nueva medida municipal.
-          Calcula la proporción muestral $\hat{p}$ y construye un intervalo de confianza
-          del 95% para la proporción real de apoyo.
-        </p>
-        <details>
-          <summary>Ver solución</summary>
-          <div class="solution">
-            <div class="formula-box">
-              $$\hat{p} = \frac{260}{400} = 0.65$$
-            </div>
-            <div class="formula-box">
-              $$\sigma_{\hat{p}} = \sqrt{\frac{0.65(0.35)}{400}} = \sqrt{0.00056875} \approx 0.0238$$
-            </div>
-            <div class="formula-box">
-              $$E = 1.96 \times 0.0238 \approx 0.0467$$
-            </div>
-            <div class="formula-box">
-              $$0.65 \pm 0.0467 \quad \Rightarrow \quad (0.603,\ 0.697)$$
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="exercise">
-        <div class="exercise__meta">
-          <span class="exercise__label">Ejercicio 3</span>
           <span class="difficulty difficulty--intermedio">Intermedio</span>
         </div>
         <p>
@@ -144,7 +117,102 @@
 
       <div class="exercise">
         <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Un laboratorio mide el tiempo de secado de una pintura en una muestra de 36
+          probetas y obtiene $\bar{x} = 45$ minutos. Se sabe, por pruebas anteriores, que
+          $\sigma = 6$ minutos. Construye un intervalo de confianza del 95% para el tiempo
+          medio de secado poblacional.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\sigma_{\bar{X}} = \frac{6}{\sqrt{36}} = \frac{6}{6} = 1$$
+            </div>
+            <div class="formula-box">
+              $$E = 1.96 \times 1 = 1.96$$
+            </div>
+            <div class="formula-box">
+              $$45 \pm 1.96 \quad \Rightarrow \quad (43.04,\ 46.96) \text{ minutos}$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <h2>Intervalo de confianza para la proporción</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
           <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          En una encuesta a 400 personas, 260 dijeron apoyar una nueva medida municipal.
+          Calcula la proporción muestral $\hat{p}$ y construye un intervalo de confianza
+          del 95% para la proporción real de apoyo.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\hat{p} = \frac{260}{400} = 0.65$$
+            </div>
+            <div class="formula-box">
+              $$\sigma_{\hat{p}} = \sqrt{\frac{0.65(0.35)}{400}} = \sqrt{0.00056875} \approx 0.0238$$
+            </div>
+            <div class="formula-box">
+              $$E = 1.96 \times 0.0238 \approx 0.0467$$
+            </div>
+            <div class="formula-box">
+              $$0.65 \pm 0.0467 \quad \Rightarrow \quad (0.603,\ 0.697)$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 5</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          En un control de calidad se revisan 200 artículos producidos y se encuentra que
+          18 son defectuosos. Construye un intervalo de confianza del 90% para la
+          proporción real de artículos defectuosos. Según tu intervalo, ¿es razonable
+          afirmar que menos del 10% de la producción es defectuosa?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\hat{p} = \frac{18}{200} = 0.09$$
+            </div>
+            <div class="formula-box">
+              $$\sigma_{\hat{p}} = \sqrt{\frac{0.09(0.91)}{200}} = \sqrt{0.0004095} \approx 0.0202$$
+            </div>
+            <div class="formula-box">
+              $$E = 1.645 \times 0.0202 \approx 0.0333$$
+            </div>
+            <div class="formula-box">
+              $$0.09 \pm 0.0333 \quad \Rightarrow \quad (0.057,\ 0.123)$$
+            </div>
+            <p>
+              Como el intervalo llega hasta 0.123 (12.3%), <strong>no</strong> es posible
+              afirmar con 90% de confianza que la proporción de defectuosos sea menor al
+              10%: ese valor todavía cae dentro del rango plausible.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <h2>Tamaño de muestra</h2>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 6</span>
           <span class="difficulty difficulty--avanzado">Avanzado</span>
         </div>
         <p>
@@ -162,6 +230,36 @@
             <p>
               Redondeando hacia arriba, se necesita una muestra de al menos
               <strong>$n = 62$</strong> conductores.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 7</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Un equipo de marketing quiere estimar la proporción de clientes satisfechos con
+          un producto nuevo, pero no cuenta con ninguna estimación previa de esa
+          proporción. ¿Qué tamaño de muestra necesita para que el margen de error sea de a
+          lo sumo $E = 0.04$, con 95% de confianza?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>
+              Como no hay una estimación previa de $p$, se usa el caso más conservador,
+              $p = 0.5$, porque es el valor que maximiza $p(1-p)$ y por lo tanto da el
+              tamaño de muestra más grande (y más seguro) posible.
+            </p>
+            <div class="formula-box">
+              $$n = \frac{z_{\alpha/2}^2\, p(1-p)}{E^2} = \frac{(1.96)^2 (0.5)(0.5)}{(0.04)^2} = \frac{3.8416 \times 0.25}{0.0016} = \frac{0.9604}{0.0016} = 600.25$$
+            </div>
+            <p>
+              Redondeando hacia arriba, se necesita una muestra de al menos
+              <strong>$n = 601$</strong> clientes.
             </p>
           </div>
         </details>
