@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios — Unidad 3: Variables aleatorias y distribuciones</title>
+<meta name="description" content="Ejercicios propuestos de variables aleatorias, valor esperado, varianza y distribución binomial, con solución paso a paso.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="index.html" class="is-current">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 3</div>
+      <h1>Ejercicios propuestos</h1>
+      <p>Intenta resolver cada ejercicio antes de ver la solución.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html">Teoría y tutorial</a>
+      <a href="ejercicios.html" class="is-current">Ejercicios</a>
+    </nav>
+
+    <section>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 1</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una variable aleatoria $X$ tiene la siguiente distribución de probabilidad,
+          donde falta un valor:
+        </p>
+        <table class="data-table">
+          <thead><tr><th>$x$</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead>
+          <tbody><tr><td>$p(x)$</td><td>0.1</td><td>0.3</td><td>0.4</td><td>?</td></tr></tbody>
+        </table>
+        <p>Encuentra el valor faltante y calcula $E(X)$.</p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Como las probabilidades deben sumar 1:</p>
+            <div class="formula-box">$$p(4) = 1 - (0.1+0.3+0.4) = 1 - 0.8 = 0.2$$</div>
+            <div class="formula-box">
+              $$E(X) = 1(0.1) + 2(0.3) + 3(0.4) + 4(0.2) = 0.1+0.6+1.2+0.8 = 2.7$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una variable aleatoria $X$ tiene la distribución:
+        </p>
+        <table class="data-table">
+          <thead><tr><th>$x$</th><th>0</th><th>1</th><th>2</th></tr></thead>
+          <tbody><tr><td>$p(x)$</td><td>0.5</td><td>0.3</td><td>0.2</td></tr></tbody>
+        </table>
+        <p>Calcula $E(X)$, $\text{Var}(X)$ y la desviación estándar de $X$.</p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$E(X) = 0(0.5) + 1(0.3) + 2(0.2) = 0.7$$
+            </div>
+            <div class="formula-box">
+              $$E(X^2) = 0^2(0.5) + 1^2(0.3) + 2^2(0.2) = 0.3 + 0.8 = 1.1$$
+            </div>
+            <div class="formula-box">
+              $$\text{Var}(X) = 1.1 - 0.7^2 = 1.1 - 0.49 = 0.61 \qquad \sigma = \sqrt{0.61} \approx 0.781$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Un examen tiene 5 preguntas de verdadero/falso. Un estudiante responde al azar,
+          así que cada pregunta tiene probabilidad $p = 0.5$ de acertar, de forma
+          independiente. Sea $X$ el número de respuestas correctas. Calcula $P(X = 3)$,
+          $E(X)$ y $\text{Var}(X)$.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>$X$ sigue una distribución binomial con $n = 5$, $p = 0.5$.</p>
+            <div class="formula-box">
+              $$P(X=3) = \binom{5}{3}(0.5)^3(0.5)^2 = 10 \cdot (0.5)^5 = \frac{10}{32} = 0.3125$$
+            </div>
+            <div class="formula-box">
+              $$E(X) = np = 5(0.5) = 2.5 \qquad \text{Var}(X) = np(1-p) = 5(0.5)(0.5) = 1.25$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Un vendedor cierra una venta en cada visita que hace con probabilidad $p = 0.3$,
+          de forma independiente. Hace 4 visitas en un día. Sea $X$ el número de ventas
+          cerradas. Calcula: (a) $P(X = 2)$, (b) $P(X \ge 1)$ usando la regla del
+          complemento, y (c) $E(X)$ y $\text{Var}(X)$.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>$X$ es binomial con $n = 4$, $p = 0.3$.</p>
+            <p><strong>(a)</strong></p>
+            <div class="formula-box">
+              $$P(X=2) = \binom{4}{2}(0.3)^2(0.7)^2 = 6(0.09)(0.49) = 0.2646$$
+            </div>
+            <p><strong>(b)</strong> Es más fácil calcular primero $P(X = 0)$ y usar el complemento.</p>
+            <div class="formula-box">
+              $$P(X=0) = (0.7)^4 = 0.2401$$
+            </div>
+            <div class="formula-box">
+              $$P(X \ge 1) = 1 - P(X=0) = 1 - 0.2401 = 0.7599$$
+            </div>
+            <p><strong>(c)</strong></p>
+            <div class="formula-box">
+              $$E(X) = np = 4(0.3) = 1.2 \qquad \text{Var}(X) = np(1-p) = 4(0.3)(0.7) = 0.84$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

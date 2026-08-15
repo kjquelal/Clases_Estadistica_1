@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios — Unidad 2: Probabilidad básica</title>
+<meta name="description" content="Ejercicios propuestos de espacio muestral, reglas de probabilidad y probabilidad condicional, con solución paso a paso.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="index.html" class="is-current">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 2</div>
+      <h1>Ejercicios propuestos</h1>
+      <p>Intenta resolver cada ejercicio antes de ver la solución.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html">Teoría y tutorial</a>
+      <a href="ejercicios.html" class="is-current">Ejercicios</a>
+    </nav>
+
+    <section>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 1</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Se lanza un dado de 6 caras. Sea $A$ el evento "sale un número par".
+          Calcula $P(A)$.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>El espacio muestral es $\Omega = \{1,2,3,4,5,6\}$, con $n(\Omega) = 6$.</p>
+            <p>El evento $A = \{2,4,6\}$, con $n(A) = 3$.</p>
+            <div class="formula-box">$$P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = 0.5$$</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una urna tiene 5 bolas rojas, 3 azules y 2 verdes ($n = 10$ en total). Se extrae
+          una bola al azar. Calcula la probabilidad de que sea roja o verde, y la
+          probabilidad de que <strong>no</strong> sea roja.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>
+              "Roja" y "verde" son mutuamente excluyentes (una bola no puede ser de dos
+              colores a la vez), así que sumamos directamente sus probabilidades.
+            </p>
+            <div class="formula-box">
+              $$P(\text{roja o verde}) = P(\text{roja}) + P(\text{verde}) = \frac{5}{10} + \frac{2}{10} = 0.7$$
+            </div>
+            <p>Para "no roja" usamos la regla del complemento.</p>
+            <div class="formula-box">
+              $$P(\text{no roja}) = 1 - P(\text{roja}) = 1 - \frac{5}{10} = 0.5$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          En una encuesta a 40 personas, 24 tienen perro ($P$), 15 tienen gato ($G$) y 9
+          tienen ambas mascotas. Calcula $P(P)$, $P(G)$, $P(P \cap G)$, $P(P \cup G)$ y
+          $P(G \mid P)$. ¿Son los eventos "tener perro" y "tener gato" independientes?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$P(P) = \frac{24}{40} = 0.6 \qquad P(G) = \frac{15}{40} = 0.375 \qquad P(P \cap G) = \frac{9}{40} = 0.225$$
+            </div>
+            <div class="formula-box">
+              $$P(P \cup G) = 0.6 + 0.375 - 0.225 = 0.75$$
+            </div>
+            <div class="formula-box">
+              $$P(G \mid P) = \frac{P(P \cap G)}{P(P)} = \frac{0.225}{0.6} = 0.375$$
+            </div>
+            <p>
+              Como $P(G \mid P) = 0.375$ es exactamente igual a $P(G) = 0.375$, saber que
+              alguien tiene perro no cambia la probabilidad de que tenga gato. En este
+              caso, <strong>los eventos sí son independientes</strong>.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Dos máquinas de una fábrica trabajan de forma <strong>independiente</strong>. La
+          probabilidad de que la máquina A falle en un día es $0.10$, y la de que falle la
+          máquina B es $0.05$. Calcula la probabilidad de que <strong>al menos una</strong>
+          de las dos máquinas falle ese día.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>
+              Es más fácil calcular primero la probabilidad de que <em>ninguna</em> falle,
+              y luego usar el complemento. Como son independientes, multiplicamos.
+            </p>
+            <div class="formula-box">
+              $$P(\text{ninguna falla}) = P(A^c) \cdot P(B^c) = (1-0.10)(1-0.05) = (0.90)(0.95) = 0.855$$
+            </div>
+            <div class="formula-box">
+              $$P(\text{al menos una falla}) = 1 - P(\text{ninguna falla}) = 1 - 0.855 = 0.145$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios — Unidad 6: Introducción a pruebas de hipótesis</title>
+<meta name="description" content="Ejercicios propuestos de pruebas de hipótesis para la media y la proporción, con solución paso a paso.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="index.html" class="is-current">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 6</div>
+      <h1>Ejercicios propuestos</h1>
+      <p>Intenta resolver cada ejercicio antes de ver la solución.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html">Teoría y tutorial</a>
+      <a href="ejercicios.html" class="is-current">Ejercicios</a>
+    </nav>
+
+    <p>
+      Usa la tabla de valores críticos de la página de teoría: dos colas
+      $\alpha=0.05 \to 1.96$, $\alpha=0.01 \to 2.576$; una cola
+      $\alpha=0.05 \to 1.645$.
+    </p>
+
+    <section>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 1</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una máquina debe llenar bolsas con 1000 g en promedio. Se sospecha que está mal
+          calibrada. Una muestra de 49 bolsas da $\bar{x} = 990$ g, con $\sigma = 35$ g
+          conocida. Prueba $H_0: \mu = 1000$ contra $H_1: \mu \ne 1000$ con
+          $\alpha = 0.05$.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$Z = \frac{990 - 1000}{35/\sqrt{49}} = \frac{-10}{5} = -2.0$$
+            </div>
+            <p>
+              Prueba de dos colas, $\alpha = 0.05 \Rightarrow z_c = 1.96$. Como
+              $|{-2.0}| = 2.0 > 1.96$, el estadístico cae en la región de rechazo.
+            </p>
+            <p><strong>Se rechaza $H_0$</strong>: hay evidencia de que la máquina está mal calibrada.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una empresa afirma que el tiempo promedio de entrega es a lo sumo 30 minutos.
+          Una muestra de 64 entregas da $\bar{x} = 32$ minutos, con $\sigma = 8$ minutos.
+          Prueba $H_0: \mu = 30$ contra $H_1: \mu > 30$ con $\alpha = 0.05$.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$Z = \frac{32 - 30}{8/\sqrt{64}} = \frac{2}{1} = 2.0$$
+            </div>
+            <p>
+              Prueba de una cola derecha, $\alpha = 0.05 \Rightarrow z_c = 1.645$. Como
+              $2.0 > 1.645$, el estadístico cae en la región de rechazo.
+            </p>
+            <p><strong>Se rechaza $H_0$</strong>: hay evidencia de que el tiempo promedio real supera los 30 minutos.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Un laboratorio afirma que el contenido medio de un medicamento es 50 mg. Una
+          muestra de 100 unidades da $\bar{x} = 48.2$ mg, con $\sigma = 6$ mg conocida.
+          Prueba $H_0: \mu = 50$ contra $H_1: \mu \ne 50$ con $\alpha = 0.01$, usando el
+          valor crítico y confirmando con el valor-p (usa $\Phi(3.0) \approx 0.9987$).
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$Z = \frac{48.2 - 50}{6/\sqrt{100}} = \frac{-1.8}{0.6} = -3.0$$
+            </div>
+            <p>
+              Prueba de dos colas, $\alpha = 0.01 \Rightarrow z_c = 2.576$. Como
+              $|{-3.0}| = 3.0 > 2.576$, se rechaza $H_0$.
+            </p>
+            <div class="formula-box">
+              $$\text{valor-p} = 2 \times [1-\Phi(3.0)] = 2(1-0.9987) = 2(0.0013) = 0.0026$$
+            </div>
+            <p>
+              Como $0.0026 < 0.01$, confirmamos la misma decisión:
+              <strong>se rechaza $H_0$</strong>. Hay evidencia fuerte de que el contenido
+              medio real es distinto de 50 mg.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Un partido político afirma tener el apoyo del 50% del electorado
+          ($p_0 = 0.5$). Una encuesta a 400 personas encuentra que 220 lo apoyan. Prueba,
+          con $\alpha = 0.05$, si hay evidencia de que el apoyo real es distinto del 50%.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\hat{p} = \frac{220}{400} = 0.55$$
+            </div>
+            <div class="formula-box">
+              $$Z = \frac{0.55 - 0.5}{\sqrt{0.5(0.5)/400}} = \frac{0.05}{0.025} = 2.0$$
+            </div>
+            <p>
+              Prueba de dos colas, $\alpha = 0.05 \Rightarrow z_c = 1.96$. Como
+              $2.0 > 1.96$, se rechaza $H_0$.
+            </p>
+            <p>
+              <strong>Se rechaza $H_0$</strong>: hay evidencia de que el apoyo real es
+              distinto del 50% afirmado.
+            </p>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

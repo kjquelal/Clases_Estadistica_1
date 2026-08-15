@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 4: Distribuciones muestrales — Estadística 1</title>
+<meta name="description" content="Teoría y tutorial paso a paso del Teorema del Límite Central, el error estándar y la distribución muestral de la media y la proporción.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="index.html" class="is-current">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 4</div>
+      <h1>Distribuciones muestrales</h1>
+      <p>Teorema del Límite Central, error estándar y distribución muestral de la media y la proporción.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html" class="is-current">Teoría y tutorial</a>
+      <a href="ejercicios.html">Ejercicios</a>
+    </nav>
+
+    <section>
+      <h2>Introducción</h2>
+      <p>
+        Hasta ahora trabajamos con los datos de una sola muestra. Pero en la práctica,
+        muestras distintas de la misma población dan medias distintas. Si tomáramos
+        muchísimas muestras del mismo tamaño $n$ y calculáramos la media $\bar{x}$ de
+        cada una, esos promedios formarían a su vez una distribución: la
+        <strong>distribución muestral de la media</strong>.
+      </p>
+      <p>
+        El <strong>Teorema del Límite Central</strong> (TLC) dice que, sin importar la
+        forma de la distribución de la población original, la distribución muestral de
+        $\bar{X}$ se aproxima a una <strong>distribución normal</strong> a medida que el
+        tamaño de muestra $n$ crece (en la práctica, basta con $n \ge 30$). Si la
+        población original ya es normal, la distribución muestral de $\bar{X}$ es
+        exactamente normal para cualquier $n$.
+      </p>
+      <p>
+        Esta distribución muestral tiene la misma media que la población, $\mu$, pero una
+        dispersión menor: su desviación estándar se llama <strong>error estándar</strong>
+        y vale $\sigma/\sqrt{n}$. Mientras más grande la muestra, menos varía la media
+        muestral de una muestra a otra.
+      </p>
+      <div class="formula-box">
+        $$\mu_{\bar{X}} = \mu \qquad \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \qquad Z = \frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$$
+      </div>
+
+      <h2>Distribución muestral de la proporción</h2>
+      <p>
+        Lo mismo ocurre con proporciones muestrales. Si $p$ es la proporción real en la
+        población y $\hat{p}$ la proporción observada en una muestra de tamaño $n$, la
+        distribución muestral de $\hat{p}$ también se aproxima a una normal cuando la
+        muestra es suficientemente grande ($np \ge 5$ y $n(1-p) \ge 5$).
+      </p>
+      <div class="formula-box">
+        $$\hat{p} \ \approx\ N\!\left(p,\ \sqrt{\frac{p(1-p)}{n}}\right)$$
+      </div>
+
+      <h2 id="tabla">Tabla de referencia rápida</h2>
+      <p>
+        $\Phi(z)$ es la probabilidad acumulada de la normal estándar hasta el valor $z$,
+        es decir $P(Z \le z)$. Por simetría, $P(Z \le -z) = 1 - \Phi(z)$. Estos son los
+        valores que usamos en el tutorial y los ejercicios de esta unidad:
+      </p>
+      <table class="data-table">
+        <thead><tr><th>$z$</th><th>1.0</th><th>1.5</th><th>2.0</th></tr></thead>
+        <tbody><tr><td>$\Phi(z)$</td><td>0.8413</td><td>0.9332</td><td>0.9772</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Tutorial resuelto: tiempo de atención en una oficina</h2>
+      <p>
+        El tiempo que tarda un funcionario en atender a un cliente tiene media
+        poblacional $\mu = 50$ minutos y desviación estándar $\sigma = 12$ minutos (no
+        sabemos si esta distribución es normal). Se observa una muestra aleatoria de
+        $n = 36$ atenciones. ¿Cuál es la probabilidad de que el tiempo promedio de la
+        muestra sea mayor a 53 minutos?
+      </p>
+
+      <div class="tutorial-step">
+        <h3>Paso 1 — Identificar los datos</h3>
+        <div class="formula-box">
+          $$\mu = 50 \qquad \sigma = 12 \qquad n = 36$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 2 — Verificar que aplica el TLC</h3>
+        <p>
+          Como $n = 36 \ge 30$, el Teorema del Límite Central nos permite tratar a
+          $\bar{X}$ como aproximadamente normal, aunque no conozcamos la forma exacta de
+          la población original.
+        </p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 3 — Calcular el error estándar</h3>
+        <div class="formula-box">
+          $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{12}{\sqrt{36}} = \frac{12}{6} = 2$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 4 — Plantear la distribución muestral</h3>
+        <div class="formula-box">
+          $$\bar{X} \ \approx\ N(\mu = 50,\ \sigma_{\bar{X}} = 2)$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 5 — Estandarizar</h3>
+        <div class="formula-box">
+          $$Z = \frac{\bar{X} - \mu}{\sigma_{\bar{X}}} = \frac{53 - 50}{2} = 1.5$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 6 — Buscar la probabilidad en la tabla</h3>
+        <p>
+          Buscamos $\Phi(1.5) = 0.9332$ en la tabla de referencia. Como nos preguntan por
+          la probabilidad de que $\bar{X}$ sea <strong>mayor</strong> a 53, usamos el
+          complemento.
+        </p>
+        <div class="formula-box">
+          $$P(\bar{X} > 53) = 1 - \Phi(1.5) = 1 - 0.9332 = 0.0668$$
+        </div>
+        <p>
+          Solo hay aproximadamente un 6.7% de probabilidad de que el tiempo promedio de
+          una muestra de 36 atenciones supere los 53 minutos.
+        </p>
+      </div>
+    </section>
+
+    <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

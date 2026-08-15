@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 5: Estimación — Estadística 1</title>
+<meta name="description" content="Teoría y tutorial paso a paso de estimación puntual, intervalos de confianza para la media y la proporción, y tamaño de muestra.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="index.html" class="is-current">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 5</div>
+      <h1>Estimación</h1>
+      <p>Estimación puntual, intervalos de confianza y tamaño de muestra.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html" class="is-current">Teoría y tutorial</a>
+      <a href="ejercicios.html">Ejercicios</a>
+    </nav>
+
+    <section>
+      <h2>Introducción</h2>
+      <p>
+        Casi nunca conocemos el verdadero valor de un parámetro poblacional (como
+        $\mu$ o $p$); solo tenemos datos de una muestra. <strong>Estimar</strong> es usar
+        esos datos para aproximar el parámetro. La forma más simple es la
+        <strong>estimación puntual</strong>: usar un solo número, como $\bar{x}$ para
+        estimar $\mu$, o $\hat{p}$ para estimar $p$.
+      </p>
+      <p>
+        El problema es que un estimador puntual casi nunca acierta exactamente, y no dice
+        nada sobre qué tan cerca está del valor real. Por eso usamos la
+        <strong>estimación por intervalos</strong>: en vez de un solo número, damos un
+        rango de valores plausibles, junto con un <strong>nivel de confianza</strong> que
+        indica qué tan seguido ese procedimiento produce un intervalo que sí contiene al
+        parámetro real.
+      </p>
+      <p>
+        Gracias al Teorema del Límite Central (Unidad 4), sabemos que $\bar{X}$ se
+        distribuye aproximadamente normal alrededor de $\mu$. Eso nos permite construir un
+        <strong>intervalo de confianza</strong> para $\mu$ tomando el estimador puntual y
+        sumando y restando un margen de error basado en el error estándar.
+      </p>
+
+      <h2>Intervalo de confianza para la media</h2>
+      <div class="formula-box">
+        $$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+      </div>
+      <p>
+        $z_{\alpha/2}$ es el valor crítico de la normal estándar asociado al nivel de
+        confianza elegido. Estos son los valores más usados:
+      </p>
+      <table class="data-table">
+        <thead><tr><th>Nivel de confianza</th><th>90%</th><th>95%</th><th>99%</th></tr></thead>
+        <tbody><tr><td>$z_{\alpha/2}$</td><td>1.645</td><td>1.96</td><td>2.576</td></tr></tbody>
+      </table>
+      <p>
+        A mayor nivel de confianza, mayor es $z_{\alpha/2}$ y por lo tanto más ancho el
+        intervalo: hay una tensión entre qué tan seguros queremos estar y qué tan preciso
+        es el rango que damos.
+      </p>
+
+      <h2>Intervalo de confianza para una proporción</h2>
+      <div class="formula-box">
+        $$\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+      </div>
+
+      <h2>Tamaño de muestra para estimar la media</h2>
+      <p>
+        Si en cambio queremos fijar de antemano qué tan preciso será el intervalo —es
+        decir, un margen de error máximo $E$— podemos despejar el tamaño de muestra $n$
+        necesario:
+      </p>
+      <div class="formula-box">
+        $$n = \left(\frac{z_{\alpha/2}\,\sigma}{E}\right)^2$$
+      </div>
+      <p>El resultado siempre se redondea <strong>hacia arriba</strong>, para garantizar que el margen de error no supere lo pedido.</p>
+    </section>
+
+    <section>
+      <h2>Tutorial resuelto: tiempo de estudio semanal</h2>
+      <p>
+        Se toma una muestra aleatoria de $n = 49$ estudiantes y se registra su tiempo de
+        estudio semanal, obteniendo una media muestral $\bar{x} = 15$ horas. Se sabe, por
+        estudios previos, que la desviación estándar poblacional es $\sigma = 4.2$ horas.
+        Construye un intervalo de confianza del <strong>95%</strong> para la media
+        poblacional.
+      </p>
+
+      <div class="tutorial-step">
+        <h3>Paso 1 — Estimación puntual</h3>
+        <div class="formula-box">$$\bar{x} = 15 \text{ horas}$$</div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 2 — Elegir el nivel de confianza</h3>
+        <p>Para 95% de confianza, usamos $z_{\alpha/2} = 1.96$ (tabla anterior).</p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 3 — Calcular el error estándar</h3>
+        <div class="formula-box">
+          $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{4.2}{\sqrt{49}} = \frac{4.2}{7} = 0.6$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 4 — Calcular el margen de error</h3>
+        <div class="formula-box">
+          $$E = z_{\alpha/2} \cdot \sigma_{\bar{X}} = 1.96 \times 0.6 = 1.176$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 5 — Construir el intervalo</h3>
+        <div class="formula-box">
+          $$15 \pm 1.176 \quad \Rightarrow \quad (13.824,\ 16.176)$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 6 — Interpretar el resultado</h3>
+        <p>
+          Con un 95% de confianza, la media poblacional del tiempo de estudio semanal de
+          los estudiantes está entre 13.82 y 16.18 horas. Esto significa que, si
+          repitiéramos este procedimiento de muestreo muchas veces, aproximadamente el
+          95% de los intervalos construidos así contendrían el verdadero valor de $\mu$.
+        </p>
+      </div>
+    </section>
+
+    <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

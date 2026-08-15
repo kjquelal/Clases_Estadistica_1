@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1: Estadística descriptiva — Estadística 1</title>
+<meta name="description" content="Teoría y tutorial paso a paso de medidas de tendencia central y dispersión.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="index.html" class="is-current">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 1</div>
+      <h1>Estadística descriptiva</h1>
+      <p>Medidas de tendencia central y dispersión.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html" class="is-current">Teoría y tutorial</a>
+      <a href="ejercicios.html">Ejercicios</a>
+    </nav>
+
+    <section>
+      <h2>Introducción</h2>
+      <p>
+        La estadística descriptiva se encarga de resumir y describir las características
+        principales de un conjunto de datos, sin sacar conclusiones más allá de lo que
+        esos datos muestran. Para lograrlo usamos dos grandes grupos de medidas: las
+        <strong>medidas de tendencia central</strong>, que indican un valor "típico" o
+        representativo del conjunto, y las <strong>medidas de dispersión</strong>, que
+        indican qué tan dispersos o agrupados están los datos alrededor de ese valor típico.
+      </p>
+      <p>
+        Las medidas de tendencia central más usadas son la <strong>media</strong> ($\bar{x}$),
+        que es el promedio aritmético; la <strong>mediana</strong>, que es el valor que queda
+        exactamente en el centro cuando los datos están ordenados; y la <strong>moda</strong>,
+        que es el valor que se repite con mayor frecuencia.
+      </p>
+      <p>
+        Sin embargo, dos conjuntos de datos pueden tener la misma media y ser muy distintos
+        entre sí: uno puede tener valores muy agrupados y otro muy dispersos. Para capturar
+        esa diferencia usamos el <strong>rango</strong> (la diferencia entre el valor máximo
+        y el mínimo), la <strong>varianza</strong> ($\sigma^2$), que promedia el cuadrado de
+        las distancias de cada dato a la media, y la <strong>desviación estándar</strong>
+        ($\sigma$), que es la raíz cuadrada de la varianza y se expresa en las mismas
+        unidades que los datos originales.
+      </p>
+
+      <div class="formula-box">
+        $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad \sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n} \qquad \sigma = \sqrt{\sigma^2}$$
+      </div>
+
+      <p>
+        En este curso trabajamos con las fórmulas <strong>poblacionales</strong> (dividiendo
+        entre $n$) cuando los datos representan a todo el grupo de interés, como en el
+        tutorial a continuación.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tutorial resuelto: notas de un curso</h2>
+      <p>
+        Un profesor registra las horas de estudio semanales de <strong>8 estudiantes</strong>:
+      </p>
+      <div class="formula-box">
+        $$2, \quad 4, \quad 4, \quad 4, \quad 5, \quad 5, \quad 7, \quad 9$$
+      </div>
+      <p>Vamos a calcular todas las medidas de tendencia central y dispersión, paso a paso.</p>
+
+      <div class="tutorial-step">
+        <h3>Paso 1 — Ordenar los datos</h3>
+        <p>
+          Los datos ya están ordenados de menor a mayor. Ordenarlos es el primer paso
+          porque la mediana y el rango dependen directamente del orden.
+        </p>
+        <div class="formula-box">$$2, 4, 4, 4, 5, 5, 7, 9$$</div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 2 — Media ($\bar{x}$)</h3>
+        <p>Se suman todos los valores y se dividen entre la cantidad de datos ($n = 8$).</p>
+        <div class="formula-box">
+          $$\bar{x} = \frac{2+4+4+4+5+5+7+9}{8} = \frac{40}{8} = 5$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 3 — Mediana</h3>
+        <p>
+          Como $n = 8$ es par, la mediana es el promedio de los dos valores centrales
+          (posiciones 4 y 5 en los datos ordenados).
+        </p>
+        <div class="formula-box">
+          $$\text{Mediana} = \frac{4 + 5}{2} = 4.5$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 4 — Moda</h3>
+        <p>El valor 4 aparece tres veces, más que cualquier otro valor del conjunto.</p>
+        <div class="formula-box">$$\text{Moda} = 4$$</div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 5 — Rango</h3>
+        <p>Diferencia entre el valor máximo y el mínimo.</p>
+        <div class="formula-box">$$\text{Rango} = 9 - 2 = 7$$</div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 6 — Varianza ($\sigma^2$)</h3>
+        <p>Se calcula la distancia de cada dato a la media, se eleva al cuadrado y se promedia.</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>$x_i$</th><th>$x_i - \bar{x}$</th><th>$(x_i - \bar{x})^2$</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2</td><td>-3</td><td>9</td></tr>
+            <tr><td>4</td><td>-1</td><td>1</td></tr>
+            <tr><td>4</td><td>-1</td><td>1</td></tr>
+            <tr><td>4</td><td>-1</td><td>1</td></tr>
+            <tr><td>5</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td>0</td><td>0</td></tr>
+            <tr><td>7</td><td>2</td><td>4</td></tr>
+            <tr><td>9</td><td>4</td><td>16</td></tr>
+          </tbody>
+        </table>
+        <div class="formula-box">
+          $$\sigma^2 = \frac{9+1+1+1+0+0+4+16}{8} = \frac{32}{8} = 4$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 7 — Desviación estándar ($\sigma$)</h3>
+        <div class="formula-box">
+          $$\sigma = \sqrt{4} = 2$$
+        </div>
+        <p>
+          En promedio, las horas de estudio de cada estudiante se alejan 2 horas de la
+          media del grupo (5 horas).
+        </p>
+      </div>
+    </section>
+
+    <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

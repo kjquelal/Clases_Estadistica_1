@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 3: Variables aleatorias y distribuciones — Estadística 1</title>
+<meta name="description" content="Teoría y tutorial paso a paso de variables aleatorias, valor esperado, varianza y la distribución binomial.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="index.html" class="is-current">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 3</div>
+      <h1>Variables aleatorias y distribuciones</h1>
+      <p>Valor esperado, varianza y la distribución binomial.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html" class="is-current">Teoría y tutorial</a>
+      <a href="ejercicios.html">Ejercicios</a>
+    </nav>
+
+    <section>
+      <h2>Introducción</h2>
+      <p>
+        Una <strong>variable aleatoria</strong> ($X$) asigna un número a cada resultado de
+        un experimento aleatorio. Puede ser <strong>discreta</strong>, si toma un conjunto
+        contable de valores (por ejemplo, el número de caras al lanzar 3 monedas), o
+        <strong>continua</strong>, si puede tomar cualquier valor dentro de un intervalo
+        (por ejemplo, el tiempo que tarda un estudiante en resolver un examen). En este
+        curso trabajamos principalmente con variables discretas.
+      </p>
+      <p>
+        La <strong>distribución de probabilidad</strong> de una variable discreta es una
+        tabla o función $p(x) = P(X = x)$ que asigna una probabilidad a cada valor posible.
+        Para que sea válida, todas las probabilidades deben ser mayores o iguales a 0 y
+        deben sumar exactamente 1.
+      </p>
+      <p>
+        Igual que con un conjunto de datos, una variable aleatoria tiene un
+        <strong>valor esperado</strong> $E(X)$ (su promedio a largo plazo) y una
+        <strong>varianza</strong> $\text{Var}(X)$ (qué tan dispersos están sus valores
+        alrededor de $E(X)$).
+      </p>
+
+      <div class="formula-box">
+        $$E(X) = \sum_i x_i \, p(x_i) \qquad \text{Var}(X) = \sum_i x_i^2 \, p(x_i) - \big[E(X)\big]^2$$
+      </div>
+
+      <h2>La distribución binomial</h2>
+      <p>
+        Muchos experimentos consisten en repetir $n$ veces un mismo ensayo con solo dos
+        resultados posibles (éxito o fracaso), con probabilidad de éxito $p$ constante e
+        independiente en cada repetición: por ejemplo, lanzar una moneda varias veces o
+        preguntar a varias personas si aprueban una medida. Si $X$ cuenta el número de
+        éxitos en esas $n$ repeticiones, decimos que $X$ sigue una
+        <strong>distribución binomial</strong>.
+      </p>
+      <div class="formula-box">
+        $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k = 0, 1, \dots, n$$
+      </div>
+      <p>
+        Para una variable binomial, el valor esperado y la varianza tienen fórmulas
+        directas, sin necesidad de construir toda la tabla de probabilidades:
+      </p>
+      <div class="formula-box">
+        $$E(X) = np \qquad \text{Var}(X) = np(1-p)$$
+      </div>
+    </section>
+
+    <section>
+      <h2>Tutorial resuelto: número de caras al lanzar 3 monedas</h2>
+      <p>
+        Se lanza una moneda equilibrada 3 veces. Sea $X$ = "número de caras obtenidas".
+      </p>
+
+      <div class="tutorial-step">
+        <h3>Paso 1 — Espacio muestral</h3>
+        <p>Hay $2^3 = 8$ resultados posibles, todos igualmente probables.</p>
+        <div class="formula-box">
+          $$\{HHH, HHT, HTH, THH, HTT, THT, TTH, TTT\}$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 2 — Construir la distribución de probabilidad</h3>
+        <p>Contamos cuántos resultados corresponden a cada valor de $X$.</p>
+        <table class="data-table">
+          <thead><tr><th>$x$</th><th>Resultados</th><th>$p(x)$</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>TTT</td><td>1/8</td></tr>
+            <tr><td>1</td><td>HTT, THT, TTH</td><td>3/8</td></tr>
+            <tr><td>2</td><td>HHT, HTH, THH</td><td>3/8</td></tr>
+            <tr><td>3</td><td>HHH</td><td>1/8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 3 — Verificar que es una distribución válida</h3>
+        <div class="formula-box">
+          $$\frac{1}{8} + \frac{3}{8} + \frac{3}{8} + \frac{1}{8} = \frac{8}{8} = 1 \ \checkmark$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 4 — Valor esperado $E(X)$</h3>
+        <div class="formula-box">
+          $$E(X) = 0\cdot\tfrac{1}{8} + 1\cdot\tfrac{3}{8} + 2\cdot\tfrac{3}{8} + 3\cdot\tfrac{1}{8} = \frac{12}{8} = 1.5$$
+        </div>
+        <p>En promedio, esperamos 1.5 caras cada vez que lanzamos la moneda 3 veces.</p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 5 — Varianza y desviación estándar</h3>
+        <div class="formula-box">
+          $$E(X^2) = 0^2\cdot\tfrac{1}{8} + 1^2\cdot\tfrac{3}{8} + 2^2\cdot\tfrac{3}{8} + 3^2\cdot\tfrac{1}{8} = \frac{24}{8} = 3$$
+        </div>
+        <div class="formula-box">
+          $$\text{Var}(X) = E(X^2) - [E(X)]^2 = 3 - 1.5^2 = 3 - 2.25 = 0.75 \qquad \sigma = \sqrt{0.75} \approx 0.866$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 6 — Reconocer el patrón binomial</h3>
+        <p>
+          Lanzar una moneda 3 veces y contar caras es justamente un experimento binomial
+          con $n = 3$ y $p = 0.5$. Verificamos con las fórmulas directas:
+        </p>
+        <div class="formula-box">
+          $$E(X) = np = 3(0.5) = 1.5 \ \checkmark \qquad \text{Var}(X) = np(1-p) = 3(0.5)(0.5) = 0.75 \ \checkmark$$
+        </div>
+        <p>
+          Ambas fórmulas coinciden con lo calculado paso a paso: cuando el experimento
+          cumple las condiciones de una binomial, no hace falta construir toda la tabla.
+        </p>
+      </div>
+    </section>
+
+    <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

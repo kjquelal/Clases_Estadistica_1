@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios — Unidad 5: Estimación</title>
+<meta name="description" content="Ejercicios propuestos de intervalos de confianza para la media y la proporción, y tamaño de muestra, con solución paso a paso.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="index.html" class="is-current">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 5</div>
+      <h1>Ejercicios propuestos</h1>
+      <p>Intenta resolver cada ejercicio antes de ver la solución.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html">Teoría y tutorial</a>
+      <a href="ejercicios.html" class="is-current">Ejercicios</a>
+    </nav>
+
+    <p>
+      Usa la tabla de valores críticos de la página de teoría:
+      90% &rarr; $z_{\alpha/2}=1.645$, 95% &rarr; $z_{\alpha/2}=1.96$, 99% &rarr; $z_{\alpha/2}=2.576$.
+    </p>
+
+    <section>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 1</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Una muestra de 64 focos LED tiene una vida media $\bar{x} = 800$ horas. Se sabe
+          que $\sigma = 48$ horas. Construye un intervalo de confianza del 90% para la
+          vida media poblacional.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\sigma_{\bar{X}} = \frac{48}{\sqrt{64}} = \frac{48}{8} = 6$$
+            </div>
+            <div class="formula-box">
+              $$E = 1.645 \times 6 = 9.87$$
+            </div>
+            <div class="formula-box">
+              $$800 \pm 9.87 \quad \Rightarrow \quad (790.13,\ 809.87) \text{ horas}$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          En una encuesta a 400 personas, 260 dijeron apoyar una nueva medida municipal.
+          Calcula la proporción muestral $\hat{p}$ y construye un intervalo de confianza
+          del 95% para la proporción real de apoyo.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\hat{p} = \frac{260}{400} = 0.65$$
+            </div>
+            <div class="formula-box">
+              $$\sigma_{\hat{p}} = \sqrt{\frac{0.65(0.35)}{400}} = \sqrt{0.00056875} \approx 0.0238$$
+            </div>
+            <div class="formula-box">
+              $$E = 1.96 \times 0.0238 \approx 0.0467$$
+            </div>
+            <div class="formula-box">
+              $$0.65 \pm 0.0467 \quad \Rightarrow \quad (0.603,\ 0.697)$$
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Un fabricante mide el contenido de 100 latas de refresco y obtiene
+          $\bar{x} = 354$ ml, con $\sigma = 6$ ml conocida. Construye un intervalo de
+          confianza del 99% para el contenido medio poblacional. El fabricante afirma que
+          el contenido promedio real es de 355 ml: ¿es creíble esa afirmación según tu
+          intervalo?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$\sigma_{\bar{X}} = \frac{6}{\sqrt{100}} = \frac{6}{10} = 0.6$$
+            </div>
+            <div class="formula-box">
+              $$E = 2.576 \times 0.6 = 1.546$$
+            </div>
+            <div class="formula-box">
+              $$354 \pm 1.546 \quad \Rightarrow \quad (352.454,\ 355.546) \text{ ml}$$
+            </div>
+            <p>
+              Como 355 ml cae <strong>dentro</strong> del intervalo, la afirmación del
+              fabricante es creíble con un 99% de confianza: no hay evidencia suficiente
+              para descartarla.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Se quiere estimar el tiempo de reacción promedio de conductores. Estudios
+          previos indican $\sigma = 1.2$ segundos. ¿Qué tamaño de muestra se necesita para
+          que el margen de error sea de a lo sumo $E = 0.3$ segundos, con 95% de
+          confianza?
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <div class="formula-box">
+              $$n = \left(\frac{z_{\alpha/2}\,\sigma}{E}\right)^2 = \left(\frac{1.96 \times 1.2}{0.3}\right)^2 = \left(\frac{2.352}{0.3}\right)^2 = (7.84)^2 = 61.47$$
+            </div>
+            <p>
+              Redondeando hacia arriba, se necesita una muestra de al menos
+              <strong>$n = 62$</strong> conductores.
+            </p>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

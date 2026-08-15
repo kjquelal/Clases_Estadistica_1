@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 6: Introducción a pruebas de hipótesis — Estadística 1</title>
+<meta name="description" content="Teoría y tutorial paso a paso de hipótesis nula y alternativa, errores tipo I y II, y pruebas de hipótesis para la media y la proporción.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="../01-descriptiva/index.html">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="index.html" class="is-current">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 6</div>
+      <h1>Introducción a pruebas de hipótesis</h1>
+      <p>Hipótesis nula y alternativa, errores tipo I y II, y pruebas para la media y la proporción.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html" class="is-current">Teoría y tutorial</a>
+      <a href="ejercicios.html">Ejercicios</a>
+    </nav>
+
+    <section>
+      <h2>Introducción</h2>
+      <p>
+        Una <strong>prueba de hipótesis</strong> es un procedimiento para decidir, a
+        partir de los datos de una muestra, si una afirmación sobre un parámetro
+        poblacional es creíble o no. Toda prueba parte de dos hipótesis opuestas: la
+        <strong>hipótesis nula</strong> ($H_0$), que representa la afirmación aceptada o
+        el "estado actual" (por ejemplo, $\mu = 500$), y la
+        <strong>hipótesis alternativa</strong> ($H_1$), que es lo que sospechamos o
+        queremos comprobar (por ejemplo, $\mu \ne 500$, $\mu < 500$ o $\mu > 500$).
+      </p>
+      <p>
+        La prueba nunca "demuestra" que $H_0$ es verdadera. Solo puede terminar en una de
+        dos decisiones: <strong>rechazar $H_0$</strong> (los datos son poco compatibles
+        con ella) o <strong>no rechazar $H_0$</strong> (los datos no dan evidencia
+        suficiente en su contra, lo cual no es lo mismo que probar que es cierta).
+      </p>
+
+      <h2>Errores tipo I y tipo II</h2>
+      <p>
+        Como la decisión se basa en una muestra, siempre existe el riesgo de
+        equivocarse. Un <strong>error tipo I</strong> ocurre al rechazar $H_0$ cuando en
+        realidad es verdadera; su probabilidad se controla de antemano y se llama
+        <strong>nivel de significancia</strong> ($\alpha$), típicamente 0.05 o 0.01. Un
+        <strong>error tipo II</strong> ocurre al no rechazar $H_0$ cuando en realidad es
+        falsa.
+      </p>
+      <table class="data-table">
+        <thead><tr><th></th><th>$H_0$ es verdadera</th><th>$H_0$ es falsa</th></tr></thead>
+        <tbody>
+          <tr><td>No rechazar $H_0$</td><td>Decisión correcta</td><td>Error tipo II</td></tr>
+          <tr><td>Rechazar $H_0$</td><td>Error tipo I ($\alpha$)</td><td>Decisión correcta</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Prueba de hipótesis para la media</h2>
+      <p>
+        Cuando se conoce $\sigma$ y la muestra es suficientemente grande (por el TLC de
+        la Unidad 4), el estadístico de prueba compara la media muestral con el valor
+        propuesto $\mu_0$, en unidades de error estándar:
+      </p>
+      <div class="formula-box">
+        $$Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}$$
+      </div>
+      <p>
+        Rechazamos $H_0$ si el estadístico cae en la <strong>región de rechazo</strong>,
+        definida por un <strong>valor crítico</strong> que depende de $\alpha$ y de si la
+        prueba es de una cola (el interés es solo mayor o solo menor) o de dos colas
+        (bilateral, el interés es "distinto de").
+      </p>
+      <table class="data-table">
+        <thead><tr><th>$\alpha$</th><th>0.10</th><th>0.05</th><th>0.01</th></tr></thead>
+        <tbody>
+          <tr><td>Una cola</td><td>1.28</td><td>1.645</td><td>2.33</td></tr>
+          <tr><td>Dos colas</td><td>1.645</td><td>1.96</td><td>2.576</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Una alternativa equivalente es el <strong>valor-p</strong>: la probabilidad de
+        obtener un estadístico al menos tan extremo como el observado, si $H_0$ fuera
+        cierta. Rechazamos $H_0$ si el valor-p es menor que $\alpha$. Ambos métodos
+        siempre llevan a la misma decisión.
+      </p>
+
+      <h2>Prueba de hipótesis para una proporción</h2>
+      <div class="formula-box">
+        $$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$
+      </div>
+      <p>Se usa la misma tabla de valores críticos y la misma regla de decisión.</p>
+    </section>
+
+    <section>
+      <h2>Tutorial resuelto: vida útil de una batería</h2>
+      <p>
+        Un fabricante afirma que sus baterías duran, en promedio, al menos 500 horas
+        ($\mu_0 = 500$). Un grupo de consumidores sospecha que la duración real es menor
+        y prueba una muestra aleatoria de $n = 36$ baterías, obteniendo $\bar{x} = 485$
+        horas. Se sabe que $\sigma = 60$ horas. ¿Hay evidencia, con $\alpha = 0.05$, de
+        que la duración media real es menor a 500 horas?
+      </p>
+
+      <div class="tutorial-step">
+        <h3>Paso 1 — Plantear las hipótesis</h3>
+        <p>
+          Como se quiere comprobar si la duración es <em>menor</em>, es una prueba de una
+          cola (izquierda).
+        </p>
+        <div class="formula-box">
+          $$H_0: \mu = 500 \qquad H_1: \mu < 500$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 2 — Nivel de significancia y valor crítico</h3>
+        <p>
+          Para $\alpha = 0.05$ y una cola, el valor crítico es $z_c = 1.645$; como la
+          alternativa es "menor que", la región de rechazo es $Z < -1.645$.
+        </p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 3 — Calcular el estadístico de prueba</h3>
+        <div class="formula-box">
+          $$Z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{485 - 500}{60/\sqrt{36}} = \frac{-15}{10} = -1.5$$
+        </div>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 4 — Comparar con la región de rechazo</h3>
+        <p>
+          Como $-1.5$ no es menor que $-1.645$ (está más cerca de 0), el estadístico
+          <strong>no cae</strong> en la región de rechazo.
+        </p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 5 — Confirmar con el valor-p</h3>
+        <div class="formula-box">
+          $$\text{valor-p} = P(Z < -1.5) = 1 - \Phi(1.5) = 1 - 0.9332 = 0.0668$$
+        </div>
+        <p>
+          Como $0.0668 > 0.05$, llegamos a la misma conclusión: no hay evidencia
+          suficiente para rechazar $H_0$.
+        </p>
+      </div>
+
+      <div class="tutorial-step">
+        <h3>Paso 6 — Interpretar el resultado</h3>
+        <p>
+          Con un 5% de significancia, <strong>no rechazamos $H_0$</strong>: los datos no
+          dan evidencia suficiente para concluir que la duración media real es menor a
+          500 horas. Esto no prueba que la afirmación del fabricante sea cierta, solo que
+          esta muestra no alcanza para refutarla.
+        </p>
+      </div>
+    </section>
+
+    <p><a href="ejercicios.html">Practicar con ejercicios propuestos &rarr;</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

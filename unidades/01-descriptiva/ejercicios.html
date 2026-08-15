@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios — Unidad 1: Estadística descriptiva</title>
+<meta name="description" content="Ejercicios propuestos de medidas de tendencia central y dispersión, con solución paso a paso.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="../../index.html" class="site-title">Estadística <span>1</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <li><a href="../../index.html">Inicio</a></li>
+      <li class="has-dropdown">
+        <span class="dropdown-label is-current">Unidades</span>
+        <ul class="dropdown">
+          <li><a href="index.html" class="is-current">1. Estadística descriptiva</a></li>
+          <li><a href="../02-probabilidad/index.html">2. Probabilidad básica</a></li>
+          <li><a href="../03-variables/index.html">3. Variables aleatorias</a></li>
+          <li><a href="../04-muestrales/index.html">4. Distribuciones muestrales</a></li>
+          <li><a href="../05-estimacion/index.html">5. Estimación</a></li>
+          <li><a href="../06-hipotesis/index.html">6. Pruebas de hipótesis</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="unit-header">
+      <div class="unit-header__eyebrow">Unidad 1</div>
+      <h1>Ejercicios propuestos</h1>
+      <p>Intenta resolver cada ejercicio antes de ver la solución.</p>
+    </div>
+
+    <nav class="unit-tabs">
+      <a href="index.html">Teoría y tutorial</a>
+      <a href="ejercicios.html" class="is-current">Ejercicios</a>
+    </nav>
+
+    <section>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 1</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Las edades de 5 personas en una reunión son: $8, 10, 10, 12, 15$.
+          Calcula la media, la mediana y la moda.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Los datos ya están ordenados: $8, 10, 10, 12, 15$ ($n = 5$).</p>
+            <p><strong>Media:</strong></p>
+            <div class="formula-box">$$\bar{x} = \frac{8+10+10+12+15}{5} = \frac{55}{5} = 11$$</div>
+            <p><strong>Mediana:</strong> como $n$ es impar, es el valor central (posición 3).</p>
+            <div class="formula-box">$$\text{Mediana} = 10$$</div>
+            <p><strong>Moda:</strong> el valor 10 se repite dos veces.</p>
+            <div class="formula-box">$$\text{Moda} = 10$$</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 2</span>
+          <span class="difficulty difficulty--basico">Básico</span>
+        </div>
+        <p>
+          Un conjunto de datos poblacional es: $5, 7, 9, 3, 6$.
+          Calcula el rango, la varianza y la desviación estándar.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Ordenados: $3, 5, 6, 7, 9$ ($n = 5$). Media: $\bar{x} = 30/5 = 6$.</p>
+            <p><strong>Rango:</strong></p>
+            <div class="formula-box">$$\text{Rango} = 9 - 3 = 6$$</div>
+            <table class="data-table">
+              <thead><tr><th>$x_i$</th><th>$x_i - \bar{x}$</th><th>$(x_i-\bar{x})^2$</th></tr></thead>
+              <tbody>
+                <tr><td>3</td><td>-3</td><td>9</td></tr>
+                <tr><td>5</td><td>-1</td><td>1</td></tr>
+                <tr><td>6</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>1</td><td>1</td></tr>
+                <tr><td>9</td><td>3</td><td>9</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Varianza:</strong></p>
+            <div class="formula-box">$$\sigma^2 = \frac{9+1+0+1+9}{5} = \frac{20}{5} = 4$$</div>
+            <p><strong>Desviación estándar:</strong></p>
+            <div class="formula-box">$$\sigma = \sqrt{4} = 2$$</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 3</span>
+          <span class="difficulty difficulty--intermedio">Intermedio</span>
+        </div>
+        <p>
+          Las calificaciones (sobre 10) de 8 estudiantes en un quiz fueron:
+          $2, 4, 7, 7, 7, 9, 10, 10$. Calcula la media, la mediana, la moda,
+          el rango, la varianza y la desviación estándar.
+        </p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p>Datos ordenados, $n = 8$.</p>
+            <p><strong>Media:</strong></p>
+            <div class="formula-box">$$\bar{x} = \frac{2+4+7+7+7+9+10+10}{8} = \frac{56}{8} = 7$$</div>
+            <p><strong>Mediana:</strong> promedio de las posiciones 4 y 5.</p>
+            <div class="formula-box">$$\text{Mediana} = \frac{7+7}{2} = 7$$</div>
+            <p><strong>Moda:</strong> el valor 7 aparece tres veces.</p>
+            <div class="formula-box">$$\text{Moda} = 7$$</div>
+            <p><strong>Rango:</strong></p>
+            <div class="formula-box">$$\text{Rango} = 10 - 2 = 8$$</div>
+            <table class="data-table">
+              <thead><tr><th>$x_i$</th><th>$x_i-\bar{x}$</th><th>$(x_i-\bar{x})^2$</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>-5</td><td>25</td></tr>
+                <tr><td>4</td><td>-3</td><td>9</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>9</td><td>2</td><td>4</td></tr>
+                <tr><td>10</td><td>3</td><td>9</td></tr>
+                <tr><td>10</td><td>3</td><td>9</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Varianza:</strong></p>
+            <div class="formula-box">$$\sigma^2 = \frac{25+9+0+0+0+4+9+9}{8} = \frac{56}{8} = 7$$</div>
+            <p><strong>Desviación estándar:</strong></p>
+            <div class="formula-box">$$\sigma = \sqrt{7} \approx 2.65$$</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise__meta">
+          <span class="exercise__label">Ejercicio 4</span>
+          <span class="difficulty difficulty--avanzado">Avanzado</span>
+        </div>
+        <p>
+          Dos secciones de un curso tienen la misma nota promedio, pero el profesor
+          quiere saber cuál sección es más homogénea (menos dispersa).
+        </p>
+        <p><strong>Sección A:</strong> $6, 7, 7, 7, 8$</p>
+        <p><strong>Sección B:</strong> $3, 7, 7, 7, 11$</p>
+        <p>Calcula la media y la desviación estándar de cada sección y determina cuál es más homogénea.</p>
+        <details>
+          <summary>Ver solución</summary>
+          <div class="solution">
+            <p><strong>Sección A</strong> ($n = 5$):</p>
+            <div class="formula-box">$$\bar{x}_A = \frac{6+7+7+7+8}{5} = \frac{35}{5} = 7$$</div>
+            <table class="data-table">
+              <thead><tr><th>$x_i$</th><th>$x_i-\bar{x}$</th><th>$(x_i-\bar{x})^2$</th></tr></thead>
+              <tbody>
+                <tr><td>6</td><td>-1</td><td>1</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>8</td><td>1</td><td>1</td></tr>
+              </tbody>
+            </table>
+            <div class="formula-box">$$\sigma_A^2 = \frac{2}{5} = 0.4 \qquad \sigma_A = \sqrt{0.4} \approx 0.63$$</div>
+
+            <p><strong>Sección B</strong> ($n = 5$):</p>
+            <div class="formula-box">$$\bar{x}_B = \frac{3+7+7+7+11}{5} = \frac{35}{5} = 7$$</div>
+            <table class="data-table">
+              <thead><tr><th>$x_i$</th><th>$x_i-\bar{x}$</th><th>$(x_i-\bar{x})^2$</th></tr></thead>
+              <tbody>
+                <tr><td>3</td><td>-4</td><td>16</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>7</td><td>0</td><td>0</td></tr>
+                <tr><td>11</td><td>4</td><td>16</td></tr>
+              </tbody>
+            </table>
+            <div class="formula-box">$$\sigma_B^2 = \frac{32}{5} = 6.4 \qquad \sigma_B = \sqrt{6.4} \approx 2.53$$</div>
+
+            <p>
+              Ambas secciones tienen la misma media ($\bar{x} = 7$), pero la Sección A
+              tiene una desviación estándar mucho menor ($0.63$ frente a $2.53$). Esto
+              significa que las notas de la Sección A están más agrupadas alrededor del
+              promedio, es decir, es <strong>más homogénea</strong> que la Sección B.
+            </p>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Material de apoyo para el curso de Estadística 1.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
