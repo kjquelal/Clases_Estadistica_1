@@ -60,102 +60,83 @@
 
       <h2>Distribución muestral de la media</h2>
       <p>
-        Si tomáramos muchísimas muestras aleatorias del mismo tamaño $n$ de una
-        población y calculáramos la media $\bar{x}$ de cada una, esos promedios
-        formarían a su vez una distribución: la <strong>distribución muestral de la
-        media</strong>. Esta distribución tiene una propiedad clave: su media coincide
-        exactamente con la media poblacional $\mu$.
+        Es la distribución que forman los promedios $\bar{x}$ de todas las muestras
+        posibles de tamaño $n$ tomadas de una población.
       </p>
       <div class="formula-box">
         $$\mu_{\bar{X}} = \mu$$
       </div>
+      <p>
+        Ejemplo: si la estatura poblacional promedio es $\mu = 170$ cm, la media de
+        <em>todas</em> las medias muestrales posibles también es 170 cm, sin importar el
+        tamaño de muestra que uses.
+      </p>
 
       <h2>Teorema del Límite Central</h2>
       <p>
-        El <strong>Teorema del Límite Central</strong> (TLC) dice que, sin importar la
-        forma de la distribución de la población original, la distribución muestral de
-        $\bar{X}$ se aproxima a una <strong>distribución normal</strong> a medida que el
-        tamaño de muestra $n$ crece (en la práctica, basta con $n \ge 30$). Si la
-        población original ya es normal, la distribución muestral de $\bar{X}$ es
-        exactamente normal para cualquier $n$
-        <span class="cite">(Walpole et al., 2012, cap. 8)</span>.
+        El <strong>Teorema del Límite Central</strong> (TLC) dice que $\bar{X}$ se
+        aproxima a una distribución normal cuando $n$ es grande, sin importar la forma
+        de la población original.
       </p>
       <div class="formula-box">
         $$\bar{X} \ \approx\ N\!\left(\mu,\ \frac{\sigma}{\sqrt{n}}\right) \qquad \text{cuando } n \ge 30$$
       </div>
       <p>
-        La fuerza del TLC está en lo que <em>no</em> exige: no necesitamos saber nada
-        sobre la forma de la población original. Puede ser una distribución simétrica,
-        muy sesgada hacia un lado, bimodal, o cualquier forma irregular; en la práctica
-        casi nunca conocemos esa forma con certeza. Aun así, si el tamaño de muestra es
-        suficientemente grande, la distribución muestral de $\bar{X}$ va a comportarse
-        como una normal, y eso nos habilita a usar todo el aparato de la curva normal
-        —puntajes $z$, cálculo de probabilidades, tablas— para responder preguntas sobre
-        la media muestral <span class="cite">(Walpole et al., 2012, cap. 8; Triola, 2018, cap. 6)</span>.
+        Ejemplo: aunque los tiempos de espera en una fila tengan una distribución muy
+        sesgada, la media de una muestra de $n=40$ esperas ya se comporta como normal.
       </p>
       <p>
-        La intuición es la siguiente: cada observación individual puede ser rara o
-        extrema, pero al promediar muchas observaciones independientes, esos valores
-        atípicos tienden a cancelarse entre sí —unos quedan por arriba del promedio,
-        otros por debajo— y lo que domina el resultado es el efecto acumulado de muchas
-        pequeñas variaciones, que es precisamente el patrón que genera una forma de
-        campana. Por eso promediar "suaviza" las irregularidades de la población
-        original.
+        Por eso es tan útil: funciona sin importar si la población es simétrica, sesgada
+        o bimodal, y nos habilita a usar la curva normal y sus puntajes $z$
+        <span class="cite">(Walpole et al., 2012, cap. 8; Triola, 2018, cap. 6)</span>.
       </p>
 
       <h2>Error estándar</h2>
       <p>
-        Aunque la distribución muestral de $\bar{X}$ esté centrada en $\mu$, su
-        dispersión es menor que la de la población original: su desviación estándar se
-        llama <strong>error estándar</strong>. Mientras más grande la muestra, menos
+        Es la desviación estándar de la distribución muestral de $\bar{X}$: mide cuánto
         varía la media muestral de una muestra a otra.
       </p>
       <div class="formula-box">
         $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \qquad\qquad Z = \frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$$
       </div>
       <p>
-        Una muestra más grande produce medias muestrales más precisas, es decir, menos
-        variables de una muestra a otra. Esto se ve directamente en la fórmula
-        $\sigma_{\bar{X}} = \sigma/\sqrt{n}$: a medida que $n$ crece, el denominador
-        crece y el error estándar se reduce. Pero como el denominador es una raíz
-        cuadrada, la mejora es cada vez más lenta: para reducir el error estándar a la
-        <strong>mitad</strong>, no basta con duplicar el tamaño de muestra, hace falta
-        <strong>cuadruplicarlo</strong>.
+        Ejemplo: si $\sigma = 20$ y $n = 25$, entonces $\sigma_{\bar{X}} = 20/\sqrt{25} =
+        20/5 = 4$.
       </p>
-      <div class="formula-box">
-        $$\text{Si } \sigma = 10: \qquad \sigma_{\bar{X}}\big|_{n=25} = \frac{10}{\sqrt{25}} = 2 \qquad\qquad \sigma_{\bar{X}}\big|_{n=100} = \frac{10}{\sqrt{100}} = 1$$
-      </div>
       <p>
-        Al pasar de $n=25$ a $n=100$ (multiplicar la muestra por 4) el error estándar
-        pasa de 2 a 1, es decir, se reduce exactamente a la mitad. Esto explica por qué,
-        en la práctica, aumentar mucho el tamaño de una muestra ya grande trae beneficios
-        cada vez más pequeños en precisión, y recolectar datos adicionales tiene
-        rendimientos decrecientes.
+        Como el denominador es una raíz cuadrada, para reducir el error estándar a la
+        mitad hace falta <strong>cuadruplicar</strong> $n$, no solo duplicarlo: con
+        $\sigma=10$, pasar de $n=25$ ($\sigma_{\bar{X}}=2$) a $n=100$
+        ($\sigma_{\bar{X}}=1$) apenas reduce el error a la mitad.
       </p>
 
       <h2>Distribución muestral de la proporción</h2>
       <p>
-        Lo mismo ocurre con proporciones muestrales. Si $p$ es la proporción real en la
-        población y $\hat{p}$ la proporción observada en una muestra de tamaño $n$, la
-        distribución muestral de $\hat{p}$ también se aproxima a una normal cuando la
-        muestra es suficientemente grande ($np \ge 5$ y $n(1-p) \ge 5$)
-        <span class="cite">(Triola, 2018, cap. 6)</span>.
+        Es la distribución que forman las proporciones muestrales $\hat{p}$ calculadas
+        sobre muestras repetidas de tamaño $n$.
       </p>
       <div class="formula-box">
         $$\hat{p} \ \approx\ N\!\left(p,\ \sqrt{\frac{p(1-p)}{n}}\right)$$
       </div>
-
-      <h3>Condiciones para usar la aproximación normal de la proporción muestral</h3>
       <p>
-        Las condiciones $np \ge 5$ y $n(1-p) \ge 5$ no son un requisito arbitrario: se
-        aseguran de que haya suficientes "éxitos" y suficientes "fracasos" esperados en
-        la muestra. Si $p$ está muy cerca de 0 o de 1 (por ejemplo, un evento muy raro) y
-        la muestra es pequeña, casi todos los resultados posibles se acumulan cerca de un
-        extremo (0 o $n$ éxitos), y la distribución resulta muy asimétrica, con forma muy
-        distinta a una campana. Al exigir al menos 5 éxitos y 5 fracasos esperados, nos
-        alejamos de esos extremos y la distribución de conteos se vuelve lo bastante
-        simétrica como para que la curva normal la aproxime bien.
+        Ejemplo: si $p = 0.4$ y $n = 50$, entonces $\hat{p} \approx
+        N\!\left(0.4,\ \sqrt{0.4(0.6)/50}\right) = N(0.4,\ 0.069)$.
       </p>
+      <p>
+        Válida cuando $np \ge 5$ y $n(1-p) \ge 5$, condición que evita que la muestra
+        quede sesgada hacia un extremo cuando $p$ es muy cercano a 0 o a 1
+        <span class="cite">(Triola, 2018, cap. 6)</span>.
+      </p>
+
+      <div class="summary-box">
+        <h3>Resumen — para recordar</h3>
+        <ul>
+          <li><strong>TLC</strong> — para $n \ge 30$, $\bar{X}$ se aproxima a una normal sin importar la forma de la población.</li>
+          <li><strong>Error estándar</strong> $\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}}$</li>
+          <li><strong>Estandarizar</strong> $Z = \dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}$</li>
+          <li><strong>Proporción</strong> $\hat{p} \approx N\!\left(p, \sqrt{p(1-p)/n}\right)$, válido si $np\ge5$ y $n(1-p)\ge5$</li>
+        </ul>
+      </div>
 
       <h2 id="tabla">Tabla de referencia rápida</h2>
       <p>

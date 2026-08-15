@@ -51,42 +51,30 @@
       <p>
         Una <strong>prueba de hipótesis</strong> es un procedimiento para decidir, a
         partir de los datos de una muestra, si una afirmación sobre un parámetro
-        poblacional es creíble o no. A continuación se presentan, tema a tema, las
-        piezas que forman ese procedimiento: las hipótesis en juego, los errores
-        posibles y las pruebas para la media y la proporción.
+        poblacional es creíble o no.
       </p>
 
       <h2>Hipótesis nula y alternativa</h2>
       <p>
-        Toda prueba parte de dos hipótesis opuestas: la <strong>hipótesis nula</strong>
-        ($H_0$), que representa la afirmación aceptada o el "estado actual" (por
-        ejemplo, $\mu = 500$), y la <strong>hipótesis alternativa</strong> ($H_1$), que
-        es lo que sospechamos o queremos comprobar (por ejemplo, $\mu \ne 500$,
-        $\mu < 500$ o $\mu > 500$). <span class="cite">(Walpole et al., 2012, cap.
-        10)</span>
+        La <strong>hipótesis nula</strong> ($H_0$) es la afirmación que se presume
+        cierta por defecto; la <strong>hipótesis alternativa</strong> ($H_1$) es lo que
+        se quiere comprobar con los datos. <span class="cite">(Walpole et al., 2012,
+        cap. 10)</span>
       </p>
+      <div class="formula-box">
+        $$H_0: \mu = 500 \qquad H_1: \mu \ne 500 \ \ (\text{o } \mu < 500 \text{, o } \mu > 500)$$
+      </div>
       <p>
-        La prueba nunca "demuestra" que $H_0$ es verdadera. Solo puede terminar en una de
-        dos decisiones: <strong>rechazar $H_0$</strong> (los datos son poco compatibles
-        con ella) o <strong>no rechazar $H_0$</strong> (los datos no dan evidencia
-        suficiente en su contra, lo cual no es lo mismo que probar que es cierta).
-      </p>
-      <p>
-        Una forma sencilla de recordar esta lógica es pensar en un juicio legal. El
-        acusado se presume inocente ($H_0$: "es inocente") hasta que la evidencia sea lo
-        bastante fuerte como para condenarlo; no se exige probar la inocencia, solo no
-        encontrar evidencia suficiente en su contra. Rechazar $H_0$ equivale a
-        declararlo culpable.
+        Es como un juicio: se presume $H_0$ cierta hasta que la evidencia sea
+        suficiente para rechazarla; la prueba nunca "demuestra" que $H_0$ es verdadera,
+        solo dice si hay o no evidencia para rechazarla.
       </p>
 
       <h2>Errores tipo I y tipo II</h2>
       <p>
-        Como la decisión se basa en una muestra, siempre existe el riesgo de
-        equivocarse. Un <strong>error tipo I</strong> ocurre al rechazar $H_0$ cuando en
-        realidad es verdadera; su probabilidad se controla de antemano y se llama
-        <strong>nivel de significancia</strong> ($\alpha$), típicamente 0.05 o 0.01. Un
-        <strong>error tipo II</strong> ocurre al no rechazar $H_0$ cuando en realidad es
-        falsa. <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
+        El <strong>error tipo I</strong> es rechazar $H_0$ siendo verdadera; el
+        <strong>error tipo II</strong> es no rechazarla siendo falsa.
+        <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
       <table class="data-table">
         <thead><tr><th></th><th>$H_0$ es verdadera</th><th>$H_0$ es falsa</th></tr></thead>
@@ -96,41 +84,28 @@
         </tbody>
       </table>
       <p>
-        Siguiendo la analogía del juicio: un <strong>error tipo I</strong> sería
-        condenar a un inocente (rechazar una $H_0$ verdadera), mientras que un
-        <strong>error tipo II</strong> sería absolver a un culpable (no rechazar una
-        $H_0$ falsa). Ningún sistema puede eliminar ambos riesgos a la vez; solo puede
-        decidir cuál le preocupa controlar más de antemano.
-      </p>
-      <h3>¿Por qué se controla $\alpha$ y no $\beta$ directamente?</h3>
-      <p>
-        Por convención, se fija $\alpha$ antes de tomar la muestra porque rechazar una
-        afirmación que en realidad era cierta suele considerarse el error "más grave" o
-        más costoso de cometer <span class="cite">(Walpole et al., 2012, cap.
-        10)</span>. En cambio, $\beta$ (la probabilidad de un error tipo II) no se puede
-        fijar de la misma manera: depende del valor verdadero (desconocido) del
-        parámetro y de qué tan lejos esté de $\mu_0$, además del tamaño de muestra. Lo
-        único que sí sabemos, en general, es que <strong>aumentar el tamaño de
-        muestra $n$ reduce $\beta$ sin necesidad de cambiar $\alpha$</strong>, porque el
-        estimador se vuelve más preciso.
+        Siguiendo el juicio: el error tipo I es condenar a un inocente y el error tipo
+        II es absolver a un culpable. Se controla $\alpha$ de antemano porque
+        rechazar una afirmación cierta suele considerarse el error más costoso;
+        $\beta$ no se fija directamente, pero aumentar $n$ lo reduce.
       </p>
 
       <h2>Prueba de hipótesis para la media</h2>
       <p>
-        Cuando se conoce $\sigma$ y la muestra es suficientemente grande (por el TLC de
-        la Unidad 4), el estadístico de prueba compara la media muestral con el valor
-        propuesto $\mu_0$, en unidades de error estándar:
+        Compara la media muestral con el valor propuesto $\mu_0$, en unidades de error
+        estándar (requiere $\sigma$ conocida y $n$ grande, por el TLC de la Unidad 4).
       </p>
       <div class="formula-box">
         $$Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}$$
       </div>
-
-      <h3>Valor crítico</h3>
       <p>
-        Rechazamos $H_0$ si el estadístico cae en la <strong>región de rechazo</strong>,
-        definida por un <strong>valor crítico</strong> que depende de $\alpha$ y de si la
-        prueba es de una cola (el interés es solo mayor o solo menor) o de dos colas
-        (bilateral, el interés es "distinto de").
+        Ejemplo rápido: con $\bar{x}=52$, $\mu_0=50$, $\sigma=8$ y $n=16$,
+        $Z = \dfrac{52-50}{8/\sqrt{16}} = \dfrac{2}{2} = 1.0$.
+      </p>
+      <p>
+        Se rechaza $H_0$ si $Z$ cae en la <strong>región de rechazo</strong>, definida
+        por un <strong>valor crítico</strong> que depende de $\alpha$ y de si la prueba
+        es de una cola o de dos colas.
         <span class="cite">(Walpole et al., 2012, cap. 10; Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
       <table class="data-table">
@@ -140,20 +115,25 @@
           <tr><td>Dos colas</td><td>1.645</td><td>1.96</td><td>2.576</td></tr>
         </tbody>
       </table>
-
-      <h3>Valor-p</h3>
       <p>
-        Una alternativa equivalente es el <strong>valor-p</strong>: la probabilidad de
-        obtener un estadístico al menos tan extremo como el observado, si $H_0$ fuera
-        cierta. Rechazamos $H_0$ si el valor-p es menor que $\alpha$. Ambos métodos
-        siempre llevan a la misma decisión.
-        <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
+        El <strong>valor-p</strong> es la probabilidad de obtener un estadístico al
+        menos tan extremo como el observado, si $H_0$ fuera cierta; se rechaza $H_0$
+        si el valor-p es menor que $\alpha$. Ambos métodos siempre llevan a la misma
+        decisión. <span class="cite">(Montgomery &amp; Runger, 2014, cap. 9)</span>
       </p>
 
       <h2>Prueba de hipótesis para una proporción</h2>
+      <p>
+        Compara la proporción muestral $\hat{p}$ con el valor propuesto $p_0$, en
+        unidades de error estándar.
+      </p>
       <div class="formula-box">
         $$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$
       </div>
+      <p>
+        Ejemplo rápido: con $\hat{p}=0.6$, $p_0=0.5$ y $n=100$,
+        $Z = \dfrac{0.6-0.5}{\sqrt{0.5(0.5)/100}} = \dfrac{0.1}{0.05} = 2.0$.
+      </p>
       <p>
         Se usa la misma tabla de valores críticos y la misma regla de decisión.
         <span class="cite">(Walpole et al., 2012, cap. 10)</span>
@@ -161,32 +141,30 @@
 
       <h2>Relación entre el intervalo de confianza y la prueba de hipótesis</h2>
       <p>
-        Las pruebas de hipótesis y los intervalos de confianza (Unidad 5) son dos caras
-        de la misma moneda: una prueba de dos colas con significancia $\alpha$ es
-        equivalente a construir un intervalo de confianza del $(1-\alpha)\times 100\%$
-        para $\mu$ y verificar si $\mu_0$ cae dentro de él. Si $\mu_0$ queda
-        <strong>fuera</strong> del intervalo, se rechaza $H_0$; si queda
+        Una prueba de dos colas con significancia $\alpha$ equivale a construir un
+        intervalo de confianza del $(1-\alpha)\times 100\%$ para $\mu$ y ver si
+        $\mu_0$ cae dentro: si queda <strong>fuera</strong>, se rechaza $H_0$; si queda
         <strong>dentro</strong>, no se rechaza. <span class="cite">(Walpole et al.,
         2012, cap. 10)</span>
       </p>
       <p>
-        Podemos ilustrarlo con los mismos datos del tutorial de la batería, pero
-        planteando ahora una prueba de dos colas: $H_0: \mu = 500$ contra
-        $H_1: \mu \ne 500$, con $\bar{x} = 485$ y error estándar
-        $\sigma_{\bar{x}} = \sigma/\sqrt{n} = 60/\sqrt{36} = 10$. El intervalo de
-        confianza del 95% para $\mu$ es:
-      </p>
-      <div class="formula-box">
-        $$\bar{x} \pm 1.96 \, \sigma_{\bar{x}} = 485 \pm 1.96(10) = (465.4,\ 504.6)$$
-      </div>
-      <p>
-        Como $\mu_0 = 500$ cae <strong>dentro</strong> del intervalo $(465.4, 504.6)$, no
-        se rechaza $H_0$ — la misma conclusión a la que llegaríamos calculando el
-        estadístico $Z$ y comparándolo con $\pm 1.96$. Esta equivalencia es útil como
-        atajo mental, pero conviene recordar que solo aplica directamente a pruebas de
-        <strong>dos colas</strong>.
+        Con los datos del tutorial de la batería ($\bar{x}=485$,
+        $\sigma_{\bar{x}}=60/\sqrt{36}=10$), el intervalo del 95% es
+        $485 \pm 1.96(10) = (465.4,\ 504.6)$. Como $\mu_0 = 500$ cae dentro, no se
+        rechaza $H_0$ — la misma conclusión que con el estadístico $Z$.
       </p>
     </section>
+
+    <div class="summary-box">
+      <h3>Resumen — para recordar</h3>
+      <ul>
+        <li><strong>$H_0$</strong> hipótesis nula (se presume cierta) — <strong>$H_1$</strong> hipótesis alternativa (lo que se quiere comprobar)</li>
+        <li><strong>Error tipo I</strong> ($\alpha$) — rechazar $H_0$ siendo verdadera. <strong>Error tipo II</strong> — no rechazar $H_0$ siendo falsa.</li>
+        <li><strong>Estadístico (media)</strong> $Z = \dfrac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$</li>
+        <li><strong>Estadístico (proporción)</strong> $Z = \dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}$</li>
+        <li><strong>Decisión</strong> — se rechaza $H_0$ si $|Z|$ supera el valor crítico, o si el valor-p es menor que $\alpha$.</li>
+      </ul>
+    </div>
 
     <section>
       <h2>Tutorial resuelto: vida útil de una batería</h2>

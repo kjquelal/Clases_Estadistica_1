@@ -59,47 +59,50 @@
 
       <h3>Media ($\bar{x}$)</h3>
       <p>
-        La <strong>media</strong> (o promedio aritmético) es la suma de todos los valores
-        de un conjunto de datos dividida entre la cantidad de datos
-        <span class="cite">(Triola, 2018, cap. 3)</span>.
+        La <strong>media</strong> (o promedio) es la suma de todos los datos dividida
+        entre la cantidad de datos <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
       <div class="formula-box">
         $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
       </div>
       <p>
-        Como la fórmula usa el valor exacto de <em>cada</em> dato, un solo valor mucho más
-        grande o más pequeño que el resto —un <strong>valor atípico</strong> (u
-        <em>outlier</em>)— puede desplazarla notablemente. Veamos un ejemplo pequeño: los
-        gastos (en miles de pesos) de 5 personas son 3, 4, 4, 4 y 5.
+        Ejemplo: los gastos (en miles de pesos) de 5 personas son 3, 4, 4, 4 y 5.
       </p>
-      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 5 \qquad \Rightarrow \qquad \bar{x} = \frac{20}{5} = 4$$</div>
-      <p>Ahora supongamos que el último dato no era 5, sino un valor mucho mayor: 50.</p>
-      <div class="formula-box">$$3, \quad 4, \quad 4, \quad 4, \quad 50 \qquad \Rightarrow \qquad \bar{x} = \frac{65}{5} = 13$$</div>
-      <p>Con un solo dato atípico, la media saltó de 4 a 13.</p>
+      <div class="formula-box">$$\bar{x} = \frac{3+4+4+4+5}{5} = \frac{20}{5} = 4$$</div>
+      <p>
+        La media es sensible a valores atípicos: si el último dato fuera 50 en vez de 5,
+        la media saltaría a $\frac{65}{5} = 13$.
+      </p>
 
       <h3>Mediana</h3>
       <p>
-        La <strong>mediana</strong> es el valor que queda exactamente en el centro cuando
-        los datos se ordenan de menor a mayor. Si $n$ es impar, la mediana es el dato que
-        ocupa la posición $\frac{n+1}{2}$; si $n$ es par, es el promedio de los dos datos
-        centrales.
+        La <strong>mediana</strong> es el valor central de los datos ordenados de menor a
+        mayor.
+      </p>
+      <div class="formula-box">
+        $$\text{Mediana} = \begin{cases} x_{\frac{n+1}{2}} & n \text{ impar} \\[4pt] \dfrac{x_{n/2} + x_{n/2+1}}{2} & n \text{ par} \end{cases}$$
+      </div>
+      <p>
+        Con los mismos datos (3, 4, 4, 4, 5), $n=5$ es impar: el valor central (posición 3)
+        es 4, así que la mediana es 4.
       </p>
       <p>
-        A diferencia de la media, la mediana solo depende de la <em>posición</em> de los
-        datos ordenados, no de su valor exacto, por lo que es mucho más robusta ante
-        valores atípicos. En el ejemplo anterior, al cambiar el 5 por un 50 la media saltó
-        de 4 a 13, pero la mediana se mantuvo exactamente en 4. Por eso, cuando un conjunto
-        de datos tiene valores extremos, suele preferirse la mediana como medida de
-        tendencia central más representativa
+        A diferencia de la media, la mediana es robusta ante valores atípicos: con
+        3, 4, 4, 4, 50 la mediana sigue siendo 4, aunque la media suba a 13
         <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
 
       <h3>Moda</h3>
       <p>
-        La <strong>moda</strong> es el valor que se repite con mayor frecuencia en el
-        conjunto de datos. Un conjunto puede no tener moda (si ningún valor se repite),
-        tener una sola moda, o tener varias —se dice entonces que es <em>bimodal</em> o
-        <em>multimodal</em>.
+        La <strong>moda</strong> es el valor que más se repite en el conjunto de datos.
+      </p>
+      <p>
+        Con los datos 3, 4, 4, 4, 5: el 4 aparece tres veces, más que cualquier otro valor,
+        así que la moda es 4.
+      </p>
+      <p>
+        Un conjunto puede no tener moda (si ningún valor se repite) o tener varias —se dice
+        entonces que es <em>bimodal</em> o <em>multimodal</em>.
       </p>
 
       <h3>Rango</h3>
@@ -109,30 +112,28 @@
       </p>
       <div class="formula-box">$$\text{Rango} = x_{\text{máx}} - x_{\text{mín}}$$</div>
       <p>
-        Es la medida de dispersión más simple de calcular, pero también la más pobre: al
-        usar solo dos datos, ignora por completo cómo se distribuyen todos los valores
-        intermedios <span class="cite">(Triola, 2018, cap. 3)</span>.
+        Con los datos 3, 3, 7, 7: $\text{Rango} = 7 - 3 = 4$.
+      </p>
+      <p>
+        Es fácil de calcular, pero al usar solo dos datos ignora cómo se distribuyen los
+        valores intermedios <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
 
       <h3>Varianza ($\sigma^2$, poblacional)</h3>
       <p>
-        La <strong>varianza</strong> mide la dispersión de los datos promediando el
-        cuadrado de la distancia de cada dato a la media.
+        La <strong>varianza</strong> promedia el cuadrado de la distancia de cada dato a
+        la media.
       </p>
       <div class="formula-box">$$\sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}$$</div>
       <p>
-        Una pregunta natural es: ¿por qué no promediar directamente las distancias
-        $(x_i - \bar{x})$ en vez de elevarlas al cuadrado? La razón es que esas distancias
-        siempre suman cero, sin importar qué tan dispersos estén los datos, porque la media
-        es precisamente el punto que las equilibra. Con el conjunto $1, 2, 3$ (media $=2$):
+        Con los datos 3, 3, 7, 7 (media $=5$): las distancias son $-2,-2,2,2$, y sus
+        cuadrados $4,4,4,4$.
       </p>
-      <div class="formula-box">$$(1-2) + (2-2) + (3-2) = -1 + 0 + 1 = 0$$</div>
+      <div class="formula-box">$$\sigma^2 = \frac{4+4+4+4}{4} = \frac{16}{4} = 4$$</div>
       <p>
-        Si promediáramos estas distancias tal cual, siempre obtendríamos 0, sin importar si
-        los datos están muy agrupados o muy dispersos —una medida inútil. Al elevar cada
-        distancia al cuadrado, los valores negativos se vuelven positivos y ya no se cancelan
-        entre sí, lo que permite obtener una medida real de la dispersión: la varianza
-        <span class="cite">(Triola, 2018, cap. 3)</span>.
+        Se elevan al cuadrado las distancias porque, sin elevarlas, siempre suman cero
+        (la media es justo el punto que las equilibra), lo que las volvería inútiles como
+        medida de dispersión <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
 
       <h3>Desviación estándar ($\sigma$)</h3>
@@ -141,50 +142,40 @@
       </p>
       <div class="formula-box">$$\sigma = \sqrt{\sigma^2}$$</div>
       <p>
-        El costo de elevar las distancias al cuadrado en la varianza es que sus unidades
-        quedan al cuadrado (por ejemplo, "horas al cuadrado"). Por eso se calcula la raíz
-        cuadrada: la desviación estándar vuelve a expresar la dispersión en las mismas
-        unidades que los datos originales
-        <span class="cite">(Triola, 2018, cap. 3)</span>.
+        Siguiendo el ejemplo anterior ($\sigma^2 = 4$): $\sigma = \sqrt{4} = 2$.
+      </p>
+      <p>
+        Al sacar raíz cuadrada, la dispersión vuelve a quedar en las unidades originales de
+        los datos, no al cuadrado <span class="cite">(Triola, 2018, cap. 3)</span>.
       </p>
 
       <h3>Población vs. muestra y la varianza muestral</h3>
       <p>
-        En este curso trabajamos por defecto con las fórmulas <strong>poblacionales</strong>
-        (dividiendo entre $n$) cuando los datos representan a todo el grupo de interés,
-        como en el tutorial a continuación. Pero conviene distinguir con cuidado entre
-        población y muestra.
-      </p>
-      <p>
-        Una <strong>población</strong> es el conjunto completo de individuos, objetos o
-        mediciones que nos interesa estudiar (por ejemplo, todos los estudiantes de una
-        universidad). Una <strong>muestra</strong> es un subconjunto de esa población, tomado
-        porque en la práctica suele ser imposible o muy costoso medir a todos
-        <span class="cite">(Triola, 2018, cap. 3)</span>. Cuando trabajamos con toda la
-        población usamos las fórmulas de $\sigma^2$ y $\sigma$ mostradas arriba, dividiendo
-        entre $N$ (el tamaño de la población).
-      </p>
-      <p>
-        Pero cuando solo tenemos una <strong>muestra</strong> y queremos usarla para estimar
-        la dispersión de la población completa, la varianza muestral se calcula dividiendo
-        entre $n-1$ en lugar de $n$:
+        Una <strong>población</strong> es el conjunto completo que nos interesa estudiar;
+        una <strong>muestra</strong> es un subconjunto de ella, tomado porque medir a toda
+        la población suele ser imposible o muy costoso
+        <span class="cite">(Triola, 2018, cap. 3)</span>. Con una población completa se usan
+        las fórmulas de $\sigma^2$ y $\sigma$ de arriba, dividiendo entre $N$. Con una
+        muestra se usa la <strong>varianza muestral</strong>, que divide entre $n-1$ en vez
+        de $n$: la varianza poblacional divide entre $N$, la muestral entre $n-1$, porque
+        estimar con una muestra introduce un pequeño sesgo que esta corrección compensa.
       </p>
       <div class="formula-box">
         $$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} \qquad s = \sqrt{s^2}$$
       </div>
-      <p>
-        ¿Por qué $n-1$ y no $n$? La idea intuitiva es que, al calcular $\bar{x}$, ya usamos
-        la información de la propia muestra para "encontrar el centro". Eso hace que las
-        distancias $(x_i - \bar{x})^2$ tiendan a ser un poco más pequeñas de lo que serían si
-        las midiéramos respecto al verdadero promedio de la población (que no conocemos).
-        Dividir entre $n-1$ en lugar de $n$ compensa ese pequeño sesgo: se dice que la muestra
-        "pierde un grado de libertad" porque uno de sus datos ya no es libre —una vez que
-        conocemos $\bar{x}$ y $n-1$ de los valores, el último valor queda determinado
-        <span class="cite">(Triola, 2018, cap. 3)</span>. No es necesario demostrarlo
-        formalmente en este curso; basta con recordar la regla práctica: <strong>varianza
-        poblacional divide entre $n$, varianza muestral divide entre $n-1$</strong>.
-      </p>
     </section>
+
+    <div class="summary-box">
+      <h3>Resumen — para recordar</h3>
+      <ul>
+        <li><strong>Media</strong> $\bar{x} = \dfrac{\sum x_i}{n}$ — el promedio; sensible a valores atípicos.</li>
+        <li><strong>Mediana</strong> — el valor central de los datos ordenados; robusta a valores atípicos.</li>
+        <li><strong>Moda</strong> — el valor más frecuente.</li>
+        <li><strong>Rango</strong> $= x_{\text{máx}} - x_{\text{mín}}$ — la medida de dispersión más simple.</li>
+        <li><strong>Varianza</strong> $\sigma^2 = \dfrac{\sum (x_i-\bar{x})^2}{n}$ — dispersión promedio al cuadrado.</li>
+        <li><strong>Desviación estándar</strong> $\sigma = \sqrt{\sigma^2}$ — dispersión en las unidades originales.</li>
+      </ul>
+    </div>
 
     <section>
       <h2>Tutorial resuelto: notas de un curso</h2>

@@ -58,49 +58,50 @@
 
       <h3>Variable aleatoria discreta y continua</h3>
       <p>
-        Una <strong>variable aleatoria</strong> ($X$) asigna un número a cada resultado de
-        un experimento aleatorio. Puede ser <strong>discreta</strong>, si toma un conjunto
-        contable de valores (por ejemplo, el número de caras al lanzar 3 monedas), o
-        <strong>continua</strong>, si puede tomar cualquier valor dentro de un intervalo
-        (por ejemplo, el tiempo que tarda un estudiante en resolver un examen). En este
-        curso trabajamos principalmente con variables discretas.
+        Una <strong>variable aleatoria</strong> $X$ asigna un número a cada resultado de un
+        experimento aleatorio.
+      </p>
+      <p>
+        Ejemplo: se lanza una moneda equilibrada 2 veces y $X$ = "número de caras". Los
+        valores posibles son $X \in \{0, 1, 2\}$. Es <strong>discreta</strong> (valores
+        contables); si en cambio $X$ fuera un tiempo o una estatura, sería
+        <strong>continua</strong> (cualquier valor en un intervalo). En este curso
+        trabajamos principalmente con variables discretas.
       </p>
 
       <h3>Distribución de probabilidad</h3>
       <p>
-        La <strong>distribución de probabilidad</strong> de una variable discreta es una
-        tabla o función $p(x) = P(X = x)$ que asigna una probabilidad a cada valor posible.
-        Para que sea válida, todas las probabilidades deben ser mayores o iguales a 0 y
-        deben sumar exactamente 1.
+        La <strong>distribución de probabilidad</strong> de $X$ es una tabla o función
+        $p(x) = P(X = x)$ que asigna una probabilidad a cada valor posible.
         <span class="cite">(Walpole et al., 2012, cap. 3)</span>
+      </p>
+      <table class="data-table">
+        <thead><tr><th>$x$</th><th>0</th><th>1</th><th>2</th></tr></thead>
+        <tbody>
+          <tr><td>$p(x)$</td><td>0.25</td><td>0.5</td><td>0.25</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Para ser válida, las probabilidades deben ser $\ge 0$ y sumar 1:
+        $0.25 + 0.5 + 0.25 = 1$ &check;
       </p>
 
       <h3>Valor esperado E(X)</h3>
       <p>
-        Igual que con un conjunto de datos, una variable aleatoria tiene un
-        <strong>valor esperado</strong> $E(X)$: un número que resume su promedio a largo
-        plazo.
+        El <strong>valor esperado</strong> $E(X)$ es el promedio de $X$ a largo plazo, si el
+        experimento se repitiera muchísimas veces.
         <span class="cite">(Walpole et al., 2012, cap. 4)</span>
       </p>
       <div class="formula-box">
         $$E(X) = \sum_i x_i \, p(x_i)$$
       </div>
       <p>
-        $E(X)$ no es "el valor que más se espera obtener" en un solo ensayo — de hecho,
-        en el ejemplo de las 3 monedas más abajo, $E(X) = 1.5$ y sin embargo es imposible
-        obtener 1.5 caras en un lanzamiento real. La interpretación correcta es a
-        <strong>largo plazo</strong>: si repitiéramos el experimento aleatorio una y otra
-        vez —muchísimas veces— y promediáramos todos los resultados obtenidos, ese
-        promedio se iría acercando cada vez más a $E(X)$. Por eso también se le llama la
-        <strong>media poblacional</strong> $\mu$ de la variable aleatoria.
+        Con la tabla de arriba: $E(X) = 0(0.25) + 1(0.5) + 2(0.25) = 1$.
       </p>
       <p>
-        Esta idea no es una casualidad: es una consecuencia de un resultado conocido como
-        la <strong>ley de los grandes números</strong>, que garantiza que el promedio de
-        muchas repeticiones independientes de un experimento converge al valor esperado
-        teórico. No demostraremos este resultado en este curso, pero vale la pena
-        tenerlo presente cada vez que interpretemos $E(X)$.
-        <span class="cite">(Walpole et al., 2012, cap. 4)</span>
+        No es "el valor más probable en un solo ensayo", sino el promedio que se observaría
+        repitiendo el experimento indefinidamente; también se le llama la
+        <strong>media poblacional</strong> $\mu$.
       </p>
 
       <h3>Varianza Var(X)</h3>
@@ -112,78 +113,57 @@
         $$\text{Var}(X) = \sum_i x_i^2 \, p(x_i) - \big[E(X)\big]^2$$
       </div>
       <p>
-        La definición "natural" de la varianza es el promedio del cuadrado de la
-        distancia entre $X$ y su media $\mu = E(X)$: $\text{Var}(X) = E\big[(X-\mu)^2\big]$.
-        Esta fórmula es intuitiva, pero incómoda de calcular directamente. Expandiendo el
-        cuadrado y usando que $E(\cdot)$ es lineal, se llega a la fórmula corta que
-        venimos usando:
+        Con el mismo ejemplo: $E(X^2) = 0(0.25) + 1(0.5) + 4(0.25) = 1.5$, así que
+        $\text{Var}(X) = 1.5 - 1^2 = 0.5$.
       </p>
-      <div class="formula-box">
-        $$
-        \begin{aligned}
-        \text{Var}(X) &= E\big[(X-\mu)^2\big] \\
-                       &= E\big[X^2 - 2\mu X + \mu^2\big] \\
-                       &= E(X^2) - 2\mu \, E(X) + \mu^2 \\
-                       &= E(X^2) - 2\mu^2 + \mu^2 \\
-                       &= E(X^2) - \mu^2
-        \end{aligned}
-        $$
-      </div>
       <p>
-        Como $\mu = E(X)$, esto es exactamente $\text{Var}(X) = E(X^2) - [E(X)]^2$: la
-        misma fórmula corta del recuadro de arriba, ahora justificada algebraicamente.
+        Esta fórmula corta se obtiene expandiendo $E[(X-\mu)^2]$; en la práctica se usa
+        directamente.
         <span class="cite">(Walpole et al., 2012, cap. 4)</span>
       </p>
 
       <h3>La distribución binomial</h3>
       <p>
-        Muchos experimentos consisten en repetir $n$ veces un mismo ensayo con solo dos
-        resultados posibles (éxito o fracaso), con probabilidad de éxito $p$ constante e
-        independiente en cada repetición: por ejemplo, lanzar una moneda varias veces o
-        preguntar a varias personas si aprueban una medida. Si $X$ cuenta el número de
-        éxitos en esas $n$ repeticiones, decimos que $X$ sigue una
-        <strong>distribución binomial</strong>.
+        La <strong>distribución binomial</strong> modela el número de éxitos $X$ al repetir
+        $n$ veces un ensayo de dos resultados posibles (éxito/fracaso) con probabilidad de
+        éxito $p$ constante.
         <span class="cite">(Walpole et al., 2012, cap. 5; Triola, 2018, cap. 5)</span>
       </p>
-      <p>
-        No cualquier experimento con "éxito" y "fracaso" es binomial. Deben cumplirse
-        cuatro condiciones a la vez:
-      </p>
+      <p>Deben cumplirse cuatro condiciones a la vez:</p>
       <ol>
-        <li>El experimento consiste en $n$ repeticiones idénticas (los "ensayos").</li>
-        <li>Cada ensayo tiene solo dos resultados posibles: <strong>éxito</strong> o
+        <li>$n$ repeticiones idénticas (los "ensayos").</li>
+        <li>Cada ensayo tiene solo dos resultados: <strong>éxito</strong> o
           <strong>fracaso</strong>.</li>
-        <li>La probabilidad de éxito $p$ es la <strong>misma en cada ensayo</strong>
-          (no cambia de un ensayo a otro).</li>
-        <li>Los ensayos son <strong>independientes</strong> entre sí: el resultado de
-          uno no afecta la probabilidad de los demás.</li>
+        <li>La probabilidad de éxito $p$ es la <strong>misma en cada ensayo</strong>.</li>
+        <li>Los ensayos son <strong>independientes</strong> entre sí.</li>
       </ol>
-      <p>
-        Si alguna de estas condiciones falla —por ejemplo, si $p$ cambia entre ensayos, o
-        si los ensayos no son independientes (como al sacar cartas de una baraja sin
-        reponerlas)— la variable ya no es binomial y hace falta otro modelo.
-        <span class="cite">(Walpole et al., 2012, cap. 5)</span>
-      </p>
       <div class="formula-box">
         $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k = 0, 1, \dots, n$$
       </div>
       <p>
-        ¿Qué representa $\binom{n}{k}$ en la fórmula? Simplemente cuenta de
-        <strong>cuántas formas distintas</strong> se pueden elegir, de los $n$ ensayos,
-        cuáles $k$ de ellos son los que resultan en éxito (el orden en que ocurren los
-        éxitos no importa, solo cuántos hay). Se multiplica por $p^k(1-p)^{n-k}$ —la
-        probabilidad de una secuencia particular con $k$ éxitos— porque cualquiera de
-        esas formas de acomodar los éxitos es igualmente válida para contar como
-        "$k$ éxitos en total".
-      </p>
-      <p>
-        Para una variable binomial, el valor esperado y la varianza tienen fórmulas
-        directas, sin necesidad de construir toda la tabla de probabilidades:
+        $\binom{n}{k}$ cuenta de cuántas formas se pueden elegir los $k$ ensayos exitosos
+        entre los $n$ totales.
       </p>
       <div class="formula-box">
         $$E(X) = np \qquad \text{Var}(X) = np(1-p)$$
       </div>
+      <p>
+        Nuestro ejemplo (2 lanzamientos, $p=0.5$) es justamente una binomial con $n=2$:
+        $E(X) = np = 2(0.5) = 1$ &check; y $\text{Var}(X) = np(1-p) = 2(0.5)(0.5) = 0.5$
+        &check; — coinciden con lo calculado arriba.
+      </p>
     </section>
+
+    <div class="summary-box">
+      <h3>Resumen — para recordar</h3>
+      <ul>
+        <li><strong>Variable aleatoria</strong> $X$ — asigna un número a cada resultado.</li>
+        <li><strong>Valor esperado</strong> $E(X) = \sum_i x_i\,p(x_i)$</li>
+        <li><strong>Varianza</strong> $\text{Var}(X) = \sum_i x_i^2\,p(x_i) - [E(X)]^2$</li>
+        <li><strong>Binomial</strong> $P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}$, con
+          $E(X)=np$ y $\text{Var}(X)=np(1-p)$</li>
+      </ul>
+    </div>
 
     <section>
       <h2>Tutorial resuelto: número de caras al lanzar 3 monedas</h2>

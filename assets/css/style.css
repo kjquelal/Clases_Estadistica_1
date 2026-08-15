@@ -489,6 +489,29 @@ main {
   color: var(--color-text-muted);
 }
 
+/* -- Resumen (estilo "para recordar") -- */
+
+.summary-box {
+  background-color: var(--color-primary-bg);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-4) 0;
+}
+.summary-box h2, .summary-box h3 {
+  margin-top: 0;
+  color: var(--color-primary-dark);
+}
+.summary-box ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.summary-box li {
+  margin-bottom: var(--space-1);
+}
+.summary-box li:last-child {
+  margin-bottom: 0;
+}
+
 .references {
   margin-top: var(--space-4);
   padding-top: var(--space-2);
